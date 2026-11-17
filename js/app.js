@@ -394,6 +394,18 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', () => updateDynamicQuestionTypography());
   animateHeroGSAP();
   initHeroInteractiveGSAP();
+
+  // Support direct hash navigation (e.g., #waiting, #hive, #lab, #demo)
+  const initialHash = window.location.hash.toLowerCase();
+  if (initialHash === '#waiting') {
+    switchView('view-waiting');
+  } else if (initialHash === '#hive') {
+    switchView('view-hive');
+  } else if (initialHash === '#lab') {
+    switchView('view-lab');
+  } else if (initialHash === '#demo' || initialHash === '#month') {
+    switchView('view-demo');
+  }
 });
 
 // ------------------------------------------------------------
@@ -443,7 +455,6 @@ function animateHeroGSAP() {
   // Kill existing tweens on these elements to allow clean replays
   gsap.killTweensOf([
     ".site-header",
-    ".watermark-glyph",
     ".ritual-eyebrow-line",
     ".ritual-hero-title",
     ".ritual-hero-subtitle",
@@ -457,6 +468,11 @@ function animateHeroGSAP() {
     ".reminders-panel"
   ]);
 
+  if (watermarkTween) {
+    watermarkTween.kill();
+    watermarkTween = null;
+  }
+
   const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
   // 1. Site Header subtle reveal
@@ -467,31 +483,12 @@ function animateHeroGSAP() {
     0
   );
 
-  // 2. Background Watermark Glyph
-  tl.fromTo(
-    ".watermark-glyph",
-    { opacity: 0, scale: 0.88, y: 30 },
-    { opacity: 1, scale: 1, y: 0, duration: 1.4, ease: "power2.out" },
-    0.1
-  );
-
-  // Continuous organic breathing float loop for watermark
-  if (watermarkTween) watermarkTween.kill();
-  watermarkTween = gsap.to(".watermark-glyph", {
-    y: -16,
-    rotation: 1.8,
-    duration: 4.8,
-    repeat: -1,
-    yoyo: true,
-    ease: "sine.inOut"
-  });
-
-  // 3. Top Eyebrow
+  // 2. Top Eyebrow
   tl.fromTo(
     ".ritual-eyebrow-line:not(.lower-eyebrow)",
     { y: 18, opacity: 0 },
     { y: 0, opacity: 1, duration: 0.65 },
-    0.15
+    0.1
   );
 
   // 4. Hero Headline
@@ -505,48 +502,48 @@ function animateHeroGSAP() {
   // 5. Subtitle & Flourish
   tl.fromTo(
     [".ritual-hero-subtitle", ".ritual-flourish-divider"],
-    { y: 16, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.7, stagger: 0.1 },
-    0.35
+    { y: 12, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.35, stagger: 0.05 },
+    0.15
   );
 
   // 6. 3 Hexagonal Process Cards (Staggered entrance)
   tl.fromTo(
     ".ritual-hex-card",
-    { y: 24, opacity: 0, scale: 0.96 },
-    { y: 0, opacity: 1, scale: 1, duration: 0.75, stagger: 0.12, ease: "back.out(1.15)" },
-    0.45
+    { y: 15, opacity: 0, scale: 0.98 },
+    { y: 0, opacity: 1, scale: 1, duration: 0.35, stagger: 0.06, ease: "power2.out" },
+    0.2
   );
 
   // 7. Lower Eyebrow & Question Title
   tl.fromTo(
     [".lower-eyebrow", "#todayPromptQuestion"],
-    { y: 20, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.7, stagger: 0.1 },
-    0.65
+    { y: 15, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.35, stagger: 0.05 },
+    0.25
   );
 
   // 8. Input & Submit Form
   tl.fromTo(
     ".ritual-prompt-form",
-    { y: 22, opacity: 0, scale: 0.98 },
-    { y: 0, opacity: 1, scale: 1, duration: 0.75, ease: "power3.out" },
-    0.78
+    { y: 15, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.35, ease: "power2.out" },
+    0.25
   );
 
   // 9. Reminders Panel
   tl.fromTo(
     ".reminders-panel",
-    { y: 25, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.8 },
-    0.92
+    { y: 15, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.35 },
+    0.3
   );
 }
 
 function initHeroInteractiveGSAP() {
   const btn = document.getElementById("submitWordBtn");
   const input = document.getElementById("wordInputField");
-  const arrow = btn ? btn.querySelector("svg") : null;
+  const arrow = btn ? btn.querySelector(".btn-arrow-icon") : null;
 
   if (btn) {
     btn.addEventListener("mouseenter", () => {
@@ -626,6 +623,7 @@ function switchView(targetViewId) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
   if (targetViewId === 'view-today') { animateHeroGSAP(); updateDynamicQuestionTypography(); }
 }
+window.switchView = switchView;
 
 function initNavigation() {
   document.querySelectorAll('.nav-btn').forEach((btn) => {
@@ -694,10 +692,23 @@ function initPromptForm() {
   const submittedWordEcho = document.getElementById('submittedWordEcho');
   const resetBtn = document.getElementById('resetWordBtn');
 
+  function setEchoWord(val) {
+    if (!submittedWordEcho) return;
+    const clean = (val || 'home').trim().toLowerCase();
+    submittedWordEcho.textContent = clean;
+    if (clean.length > 10) {
+      submittedWordEcho.setAttribute('font-size', '24');
+    } else if (clean.length > 6) {
+      submittedWordEcho.setAttribute('font-size', '30');
+    } else {
+      submittedWordEcho.setAttribute('font-size', '38');
+    }
+  }
+
   // Check if already submitted today
   const savedWord = localStorage.getItem('haive_today_word');
   if (savedWord) {
-    submittedWordEcho.textContent = `“${savedWord}”`;
+    setEchoWord(savedWord);
     switchView('view-waiting');
   }
 
@@ -728,25 +739,34 @@ function initPromptForm() {
 
     // Process submission
     submitBtn.disabled = true;
-    submitBtn.innerHTML = `
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin" style="animation: spin 1s linear infinite;">
-        <circle cx="12" cy="12" r="10" stroke-opacity="0.3"></circle>
-        <path d="M12 2a10 10 0 0 1 10 10"></path>
-      </svg>
-      Joining the hive...
-    `;
+    const btnText = submitBtn.querySelector('.ritual-btn-label') || submitBtn.querySelector('.hex-btn-text');
+    if (btnText) {
+      btnText.innerHTML = `
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin" style="animation: spin 1s linear infinite; margin-right: 8px; vertical-align: middle;">
+          <circle cx="12" cy="12" r="10" stroke-opacity="0.3"></circle>
+          <path d="M12 2a10 10 0 0 1 10 10"></path>
+        </svg>
+        Joining the hive...
+      `;
+    } else {
+      submitBtn.textContent = `Joining the hive...`;
+    }
 
     setTimeout(() => {
       localStorage.setItem('haive_today_word', rawVal);
-      submittedWordEcho.textContent = `“${rawVal}”`;
+      setEchoWord(rawVal);
       submitBtn.disabled = false;
-      submitBtn.innerHTML = `Give it one thing`;
+      if (btnText) {
+        btnText.textContent = `Give it one thing`;
+      } else {
+        submitBtn.textContent = `Give it one thing`;
+      }
       input.value = '';
       switchView('view-waiting');
     }, 600);
   });
 
-  resetBtn.addEventListener('click', () => {
+  resetBtn?.addEventListener('click', () => {
     localStorage.removeItem('haive_today_word');
     input.value = '';
     switchView('view-today');
@@ -782,34 +802,79 @@ function initGroupedHiveArchive() {
     // 1. GROUP: ACTIVE TODAY
     if (filterType === 'all' || filterType === 'today') {
       const activeGroup = document.createElement('section');
-      activeGroup.className = 'archive-group';
+      activeGroup.className = 'hive-section-block';
       activeGroup.innerHTML = `
-        <div class="group-header-row">
-          <div class="group-title-lockup">
-            <h2 class="group-title">Active Today</h2>
+        <div class="hive-section-header">
+          <div class="hive-section-title-lockup">
+            <svg class="hive-header-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <polygon points="12,2 17,5 17,11 12,14 7,11 7,5" fill="#FCEEE5" stroke="#B84D24" stroke-width="1.4" stroke-linejoin="round" />
+              <polygon points="17,11 22,14 22,20 17,23 12,20 12,14" fill="#FCEEE5" stroke="#B84D24" stroke-width="1.4" stroke-linejoin="round" />
+              <polygon points="7,11 12,14 12,20 7,23 2,20 2,14" fill="#FCEEE5" stroke="#B84D24" stroke-width="1.4" stroke-linejoin="round" />
+            </svg>
+            <h2 class="hive-section-heading">Active Today</h2>
           </div>
-          <span style="font-family:var(--font-mono); font-size:12px; color:var(--clay);">CLOSES MIDNIGHT UTC</span>
+          <div class="hive-status-pill-peach">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>Closes Midnight UTC</span>
+          </div>
         </div>
       `;
 
       todayItems.forEach(item => {
         const activeCard = document.createElement('div');
-        activeCard.className = 'active-highlight-box';
+        activeCard.className = 'featured-hex-card';
         activeCard.innerHTML = `
-          <div>
-            <div style="display:flex; align-items:center; gap:10px;">
-              <span style="font-family:var(--font-mono); font-size:11px; color:var(--dim);">${item.date}</span>
-              <span style="font-family:var(--font-mono); font-size:11px; color:var(--clay);">${item.dayCode}</span>
+          <!-- Distinctive Elongated Hexagonal Card Silhouette Matching Reference -->
+          <svg class="featured-card-svg-bg" viewBox="0 0 1140 230" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M 72.0 3.0 L 1068.0 3.0 Q 1092.0 3.0 1104.0 28.0 L 1125.0 88.0 Q 1138.0 115.0 1125.0 142.0 L 1104.0 202.0 Q 1092.0 227.0 1068.0 227.0 L 72.0 227.0 Q 48.0 227.0 36.0 202.0 L 15.0 142.0 Q 2.0 115.0 15.0 88.0 L 36.0 28.0 Q 48.0 3.0 72.0 3.0 Z" class="featured-card-path" fill="#FFFDF9" stroke="#EBC9B5" stroke-width="1.8"/>
+          </svg>
+
+          <div class="featured-card-inner">
+            <!-- Left Column: Details -->
+            <div class="featured-card-left">
+              <div class="featured-date-pill">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B84D24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span class="pill-date">${item.date}</span>
+                <span class="pill-sep">&middot;</span>
+                <span class="pill-day-code">${item.dayCode.replace('DAY ', 'Day ')}</span>
+              </div>
+
+              <h3 class="featured-card-question">One word for <span class="featured-q-italic">home.</span></h3>
+
+              <div class="featured-card-subline">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B84D24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <span>${item.submissions} submitted globally.</span>
+              </div>
             </div>
-            <h3 class="active-q">${item.question}</h3>
-            <p style="font-size:14px; color:var(--dim); margin-top:6px;">
-              ${item.submissions} submitted globally. No peeking until the midnight reveal.
-            </p>
+
+            <!-- Vertical Divider -->
+            <div class="featured-card-vsep" aria-hidden="true"></div>
+
+            <!-- Right Column: Hex Button -->
+            <div class="featured-card-right">
+              <button class="featured-hex-cta-btn" id="hiveGoSubmitBtn" type="button">
+                <svg class="featured-hex-btn-svg" viewBox="0 0 280 60" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M 28.0 3.0 L 252.0 3.0 Q 262.0 3.0 267.0 11.0 L 275.0 23.0 Q 278.0 30.0 275.0 37.0 L 267.0 49.0 Q 262.0 57.0 252.0 57.0 L 28.0 57.0 Q 18.0 57.0 13.0 49.0 L 5.0 37.0 Q 2.0 30.0 5.0 23.0 L 13.0 11.0 Q 18.0 3.0 28.0 3.0 Z" class="featured-hex-btn-path" fill="#B84D24" stroke="#FFFFFF" stroke-width="2.5"/>
+                </svg>
+                <span class="featured-hex-btn-text">Contribute Your Word &rarr;</span>
+              </button>
+            </div>
           </div>
-          <button class="btn-primary" style="padding:14px 28px; white-space:nowrap;" id="hiveGoSubmitBtn">
-            Contribute Your Word &rarr;
-          </button>
         `;
+
         activeCard.querySelector('#hiveGoSubmitBtn').addEventListener('click', () => {
           switchView('view-today');
         });
@@ -827,15 +892,21 @@ function initGroupedHiveArchive() {
 
       if (itemsToShow.length > 0) {
         const revGroup = document.createElement('section');
-        revGroup.className = 'archive-group';
+        revGroup.className = 'hive-section-block';
         revGroup.innerHTML = `
-          <div class="group-header-row">
-            <div class="group-title-lockup">
-              <h2 class="group-title">Revealed Archives</h2>
-              <span class="group-status-badge available">${itemsToShow.length} Available to Explore</span>
+          <div class="hive-section-header">
+            <div class="hive-section-title-lockup">
+              <svg class="hive-header-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B84D24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+              <h2 class="hive-section-heading">Revealed Archives</h2>
+              <span class="hive-badge-subtle">${itemsToShow.length} Available to Explore</span>
             </div>
-            <span style="font-family:var(--font-mono); font-size:11px; color:var(--dim);">CLICK ANY CARD TO OPEN REVEAL</span>
+            <span class="hive-reveal-guide-text">Click any card to open reveal &rarr;</span>
           </div>
+          <div class="hive-section-divider" aria-hidden="true"></div>
           <div class="group-grid" id="revealedGrid"></div>
         `;
 
@@ -855,15 +926,20 @@ function initGroupedHiveArchive() {
     // 3. GROUP: SCHEDULED RITUALS (COMING SOON)
     if (filterType === 'all' || filterType === 'upcoming') {
       const upGroup = document.createElement('section');
-      upGroup.className = 'archive-group';
+      upGroup.className = 'hive-section-block';
       upGroup.innerHTML = `
-        <div class="group-header-row">
-          <div class="group-title-lockup">
-            <h2 class="group-title">Scheduled Rituals</h2>
-            <span class="group-status-badge coming-soon">Locked &middot; Coming Soon</span>
+        <div class="hive-section-header">
+          <div class="hive-section-title-lockup">
+            <svg class="hive-header-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B84D24" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <h2 class="hive-section-heading">Scheduled Rituals</h2>
+            <span class="hive-badge-subtle coming-soon">Locked &middot; Coming Soon</span>
           </div>
-          <span style="font-family:var(--font-mono); font-size:11px; color:var(--dim);">SCHEDULED DROPS</span>
+          <span class="hive-reveal-guide-text">Scheduled Drops</span>
         </div>
+        <div class="hive-section-divider" aria-hidden="true"></div>
         <div class="group-grid" id="upcomingGrid"></div>
       `;
 
@@ -926,49 +1002,72 @@ function initDemoMonthGrid() {
   const grid = document.getElementById('demoCalendarGrid');
   const weekFilters = document.querySelectorAll('.week-filter-group .filter-chip');
 
-  renderDemoGrid('all');
+  if (grid) {
+    renderDemoGrid('all');
 
-  weekFilters.forEach(btn => {
-    btn.addEventListener('click', () => {
-      weekFilters.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const week = btn.getAttribute('data-week');
-      renderDemoGrid(week);
+    weekFilters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        weekFilters.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const week = btn.getAttribute('data-week');
+        renderDemoGrid(week);
+      });
+    });
+
+    function renderDemoGrid(weekFilter) {
+      grid.innerHTML = '';
+
+      const filtered = SAMPLE_MONTH_DAYS.filter(d => {
+        if (weekFilter === 'all') return true;
+        return String(d.week) === weekFilter;
+      });
+
+      filtered.forEach((day, idx) => {
+        const card = document.createElement('div');
+        card.className = 'demo-day-card';
+        card.style.animationDelay = `${Math.min(idx * 30, 400)}ms`;
+
+        card.innerHTML = `
+          <div>
+            <div class="demo-day-header">
+              <span class="demo-day-tag">${day.dayCode}</span>
+              <span class="demo-day-date">${day.date}</span>
+            </div>
+            <h3 class="demo-day-question">“${day.question}”</h3>
+          </div>
+          <div class="demo-day-footer">
+            <span class="demo-dominant-pill" title="Dominant theme">${day.dominant}</span>
+            <span class="demo-count-tag">${day.submissions}</span>
+          </div>
+        `;
+
+        card.addEventListener('click', () => {
+          openDayDetailModal(day);
+        });
+
+        grid.appendChild(card);
+      });
+    }
+  }
+
+  // Bind 4 Daily Reveals cards from the Exact Reference View
+  document.querySelectorAll('.summary-hex-card').forEach((card) => {
+    card.addEventListener('click', () => {
+      const dayNum = parseInt(card.getAttribute('data-day') || '1', 10);
+      const dayData = SAMPLE_MONTH_DAYS.find(d => d.day === dayNum) || SAMPLE_MONTH_DAYS[0];
+      if (typeof openDayDetailModal === 'function') {
+        openDayDetailModal(dayData);
+      }
     });
   });
 
-  function renderDemoGrid(weekFilter) {
-    grid.innerHTML = '';
-
-    const filtered = SAMPLE_MONTH_DAYS.filter(d => {
-      if (weekFilter === 'all') return true;
-      return String(d.week) === weekFilter;
-    });
-
-    filtered.forEach((day, idx) => {
-      const card = document.createElement('div');
-      card.className = 'demo-day-card';
-      card.style.animationDelay = `${Math.min(idx * 30, 400)}ms`;
-
-      card.innerHTML = `
-        <div>
-          <div class="demo-day-header">
-            <span class="demo-day-tag">${day.dayCode}</span>
-            <span class="demo-day-date">${day.date}</span>
-          </div>
-          <h3 class="demo-day-question">“${day.question}”</h3>
-        </div>
-        <div class="demo-day-footer">
-          <span class="demo-dominant-pill" title="Dominant theme">${day.dominant}</span>
-          <span class="demo-count-tag">${day.submissions}</span>
-        </div>
-      `;
-
-      card.addEventListener('click', () => {
-        openDayDetailModal(day);
-      });
-
-      grid.appendChild(card);
+  const exploreLink = document.getElementById('exploreMonthLink');
+  if (exploreLink) {
+    exploreLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (typeof openDayDetailModal === 'function' && SAMPLE_MONTH_DAYS.length > 0) {
+        openDayDetailModal(SAMPLE_MONTH_DAYS[0]);
+      }
     });
   }
 }
@@ -1110,6 +1209,9 @@ function openDayDetailModal(day) {
 // ------------------------------------------------------------
 function initCountdown() {
   const clockEl = document.getElementById('countdownClock');
+  const hoursEl = document.getElementById('countdownHours');
+  const minsEl = document.getElementById('countdownMinutes');
+  const secsEl = document.getElementById('countdownSeconds');
 
   function update() {
     const now = new Date();
@@ -1117,7 +1219,10 @@ function initCountdown() {
     const diff = midnightUTC - now;
 
     if (diff <= 0) {
-      clockEl.textContent = '00:00:00 — Reveal Live';
+      if (hoursEl) hoursEl.textContent = '00';
+      if (minsEl) minsEl.textContent = '00';
+      if (secsEl) secsEl.textContent = '00';
+      if (clockEl && !hoursEl) clockEl.textContent = '00:00:00 — Reveal Live';
       return;
     }
 
@@ -1125,7 +1230,10 @@ function initCountdown() {
     const mins = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
     const secs = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
 
-    clockEl.textContent = `${hrs}:${mins}:${secs}`;
+    if (hoursEl) hoursEl.textContent = hrs;
+    if (minsEl) minsEl.textContent = mins;
+    if (secsEl) secsEl.textContent = secs;
+    if (clockEl && !hoursEl) clockEl.textContent = `${hrs}:${mins}:${secs}`;
   }
 
   update();
@@ -1208,6 +1316,19 @@ function initQuickLinks() {
   });
 
   // Waiting screen buttons
+  document.getElementById('waitExploreYesterdayBtn')?.addEventListener('click', () => {
+    switchView('view-hive');
+    const yesterday = archiveDays.find((d) => d.dayNum === 47) || archiveDays[0];
+    if (yesterday) {
+      setTimeout(() => openDayDetailModal(yesterday), 200);
+    }
+  });
+
+  document.getElementById('waitCheckLabsLink')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    switchView('view-lab');
+  });
+
   document.getElementById('waitSeeHiveBtn')?.addEventListener('click', () => {
     switchView('view-hive');
   });
@@ -1278,7 +1399,7 @@ function initQuickLinks() {
 // 10. THE LAB — Machine Consensus & 11 Labs Multi-Lingual Engine
 // ============================================================
 let currentAiMonth = 'October 2026';
-let currentShowcaseModelId = 'sealion';
+let currentShowcaseModelId = null;
 
 function initLabView() {
   renderAiModels(currentAiMonth);
@@ -1291,6 +1412,9 @@ function initLabView() {
       document.querySelectorAll('.lab-month-pill').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       currentAiMonth = btn.getAttribute('data-ai-month');
+      currentShowcaseModelId = null;
+      const showcase = document.getElementById('aiMonthShowcase');
+      if (showcase) showcase.classList.add('hidden');
       renderAiModels(currentAiMonth);
     });
   });
@@ -1312,6 +1436,39 @@ function initLabView() {
       closeAiModelModal();
       closeLabDayDetailModal();
     }
+  });
+
+  // 4. Lab Process Ribbon Chevron Arrow Hover Handling
+  initLabHeroHover();
+}
+
+function initLabHeroHover() {
+  const items = document.querySelectorAll('.lab-step-item');
+  items.forEach(item => {
+    const step = item.getAttribute('data-step');
+    const seg = document.getElementById(`labSegment${step}`);
+    if (!seg) return;
+
+    item.addEventListener('mouseenter', () => {
+      seg.classList.add('is-hovered');
+      if (step === '1') document.getElementById('labDivider1')?.style.setProperty('opacity', '0');
+      if (step === '2') {
+        document.getElementById('labDivider1')?.style.setProperty('opacity', '0');
+        document.getElementById('labDivider2')?.style.setProperty('opacity', '0');
+      }
+      if (step === '3') {
+        document.getElementById('labDivider2')?.style.setProperty('opacity', '0');
+        document.getElementById('labDivider3')?.style.setProperty('opacity', '0');
+      }
+      if (step === '4') document.getElementById('labDivider3')?.style.setProperty('opacity', '0');
+    });
+
+    item.addEventListener('mouseleave', () => {
+      seg.classList.remove('is-hovered');
+      ['labDivider1', 'labDivider2', 'labDivider3'].forEach(id => {
+        document.getElementById(id)?.style.removeProperty('opacity');
+      });
+    });
   });
 }
 
@@ -1383,19 +1540,26 @@ function renderAiModels(selectedMonth) {
     `;
 
     card.addEventListener('click', () => {
-      renderAiMonthShowcase(model.id);
-      const showcaseEl = document.getElementById('aiMonthShowcase');
-      if (showcaseEl) {
-        showcaseEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      if (currentShowcaseModelId === model.id) {
+        currentShowcaseModelId = null;
+        const showcaseEl = document.getElementById('aiMonthShowcase');
+        if (showcaseEl) showcaseEl.classList.add('hidden');
+        card.classList.remove('active-model');
+      } else {
+        renderAiMonthShowcase(model.id);
+        const showcaseEl = document.getElementById('aiMonthShowcase');
+        if (showcaseEl) {
+          showcaseEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
       }
     });
 
     grid.appendChild(card);
   });
 
-  // If in October 2026, activate showcase for current/default model (SEA-LION)
-  if (selectedMonth === 'October 2026') {
-    renderAiMonthShowcase(currentShowcaseModelId || 'sealion');
+  // Only render showcase if user explicitly selected a model
+  if (currentShowcaseModelId) {
+    renderAiMonthShowcase(currentShowcaseModelId);
   } else {
     const showcase = document.getElementById('aiMonthShowcase');
     if (showcase) showcase.classList.add('hidden');
@@ -1474,7 +1638,16 @@ function renderAiMonthShowcase(modelId) {
   showcaseEl.innerHTML = `
     <!-- 1. The Honeycomb Month Poster -->
     <div class="ai-showcase-poster">
-      <div class="ai-showcase-eyebrow">MY MONTH IN THE HIVE</div>
+      <div class="ai-showcase-top-bar">
+        <div class="ai-showcase-eyebrow">MY MONTH IN THE HIVE &middot; ${data.name.toUpperCase()}</div>
+        <button class="ai-showcase-close-btn" id="aiShowcaseCloseBtn" type="button" aria-label="Close Showcase">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          <span>Close</span>
+        </button>
+      </div>
       <h2 class="ai-showcase-title">${data.name}&rsquo;s ${data.month}</h2>
       <p class="ai-showcase-quote">&ldquo;${data.quote}&rdquo;</p>
       
@@ -1521,6 +1694,12 @@ function renderAiMonthShowcase(modelId) {
 
   showcaseEl.classList.remove('hidden');
 
+  showcaseEl.querySelector('#aiShowcaseCloseBtn')?.addEventListener('click', () => {
+    currentShowcaseModelId = null;
+    showcaseEl.classList.add('hidden');
+    document.querySelectorAll('.ai-model-card').forEach(c => c.classList.remove('active-model'));
+  });
+
   // Interactive hexagon click handler to jump & highlight corresponding ledger row
   showcaseEl.querySelectorAll('.ai-hex-group').forEach((g) => {
     g.addEventListener('click', () => {
@@ -1535,35 +1714,53 @@ function renderAiMonthShowcase(modelId) {
   });
 }
 
+function formatQuestionWithItalic(question, topWord) {
+  if (!question) return '';
+  if (!topWord) return `“${question}”`;
+  const cleanWord = topWord.replace(/[^a-zA-Z0-9]/g, '');
+  if (!cleanWord) return `“${question}”`;
+
+  // Look for the word in the question (case-insensitive)
+  const regex = new RegExp(`\\b(${cleanWord}[a-z]*)\\b`, 'i');
+  if (regex.test(question)) {
+    return `“${question.replace(regex, `<span class="lab-q-italic">$1</span>`)}”`;
+  }
+  return `“${question}”`;
+}
+
 function renderLabDaysFeed() {
   const feed = document.getElementById('labDaysFeed');
   if (!feed) return;
   feed.innerHTML = '';
 
-  // Group by Month as on the official site
   const months = ['November 2026', 'October 2026', 'September 2026'];
 
-  months.forEach((monthName, mIdx) => {
+  months.forEach((monthName) => {
     const monthDays = LAB_DAYS.filter(d => d.month === monthName);
     if (monthDays.length === 0) return;
 
     const monthSlug = `month-${monthName.toLowerCase().replace(/\s+/g, '-')}`;
 
-    // Month Heading with delicate honeycomb glyph and jump anchor ID
+    // Month Heading matching reference: hexagon icon + title on left, pill badge on right
     const headerEl = document.createElement('div');
     headerEl.className = 'lab-month-header';
     headerEl.id = monthSlug;
     headerEl.innerHTML = `
       <div class="lab-month-title-wrap">
-        <div class="lab-month-glyph">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-            <polygon points="12 2 21 7 21 17 12 22 3 17 3 7" stroke="var(--clay)" stroke-width="1.5" stroke-opacity="0.6"/>
-            <polygon points="12 6 17 9 17 15 12 18 7 15 7 9" fill="var(--clay-subtle)"/>
-          </svg>
-        </div>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B84D24" stroke-width="2.2" class="lab-month-hex-icon">
+          <polygon points="12 2 21 7.2 21 16.8 12 22 3 16.8 3 7.2 12 2"></polygon>
+        </svg>
         <h3 class="lab-month-title">${monthName}</h3>
       </div>
-      <span class="lab-month-count">${monthDays.length} days recorded</span>
+      <div class="lab-month-pill-badge">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B84D24" stroke-width="2">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <span>${monthDays.length} Days Recorded</span>
+      </div>
     `;
     feed.appendChild(headerEl);
 
@@ -1573,112 +1770,123 @@ function renderLabDaysFeed() {
       card.className = 'lab-day-card';
       card.setAttribute('data-day-num', day.dayNum);
 
-      const artHtml = getDayArtworkHTML(day);
+      const topWord = day.bins[0]?.word || "";
+      const questionHtml = formatQuestionWithItalic(day.question, topWord);
+      const dateFormatted = `${day.date.toUpperCase()} &middot; ${day.dayCode}`;
 
-      // Dominant signal hierarchy: Leader stands out in warm terracotta with pct
-      const freqPillsHtml = day.bins.slice(0, 6).map((b, bIdx) => {
-        if (bIdx === 0) {
-          return `
-            <span class="lab-pill lab-pill-lead" title="Colony dominant signal (${b.pct}%)">
-              <span class="pill-word">${b.word}</span>
-              <b class="pill-count">${b.count}</b>
-              <span class="pill-pct">(${b.pct}%)</span>
-            </span>
-          `;
-        }
-        return `
-          <span class="lab-pill">
-            <span class="pill-word">${b.word}</span>
-            <b class="pill-count">${b.count}</b>
-          </span>
+      // Pills row (up to 6 pills)
+      const freqPillsHtml = day.bins.slice(0, 6).map((b) => `
+        <span class="lab-day-freq-pill">
+          <span class="pill-word">${b.word}</span>
+          <span class="pill-count">${b.count}</span>
+        </span>
+      `).join('');
+
+      // Artwork SVG content
+      const num = day.dayNum;
+      const hexClipPath = "M 76 6 L 184 6 Q 196 6 204 18 L 246 84 Q 253 95 246 106 L 204 172 Q 196 184 184 184 L 76 184 Q 64 184 56 172 L 14 106 Q 7 95 14 84 L 56 18 Q 64 6 76 6 Z";
+      let artSvgInner = '';
+      if (day.artImage) {
+        artSvgInner = `
+          <image href="${day.artImage}" x="0" y="0" width="260" height="190" preserveAspectRatio="xMidYMid slice" clip-path="url(#hex-clip-${num})" />
         `;
-      }).join('');
+      } else {
+        artSvgInner = `
+          <g clip-path="url(#hex-clip-${num})">
+            <rect width="260" height="190" fill="#203028" />
+            <circle cx="${95 + (num % 60)}" cy="95" r="${35 + (num % 25)}" fill="none" stroke="#D98A62" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
+            <circle cx="${165 - (num % 40)}" cy="95" r="${26 + (num % 18)}" fill="none" stroke="#8CB89F" stroke-width="1.5" opacity="0.5"/>
+            <text x="130" y="90" text-anchor="middle" font-family="serif" font-style="italic" font-size="22" fill="#FCEEE5">&ldquo;${topWord || 'Machine'}&rdquo;</text>
+            <text x="130" y="116" text-anchor="middle" font-family="monospace" font-size="11" letter-spacing="1" fill="#D98A62">${day.dayCode}</text>
+          </g>
+        `;
+      }
 
       card.innerHTML = `
-        ${artHtml}
-        <div class="lab-day-content">
-          <div>
-            <div class="lab-day-meta-top">
-              <span>${day.date} &middot; ${day.dayCode}</span>
-            </div>
+        <!-- Distinctive Elongated Hexagonal Card Silhouette Matching Reference Exactly -->
+        <svg class="lab-day-card-svg-bg" viewBox="0 0 1024 240" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M 86.0 3.0 L 940.0 3.0 Q 948.0 3.0 954.0 11.0 L 1005.0 113.0 Q 1010.0 125.0 1005.0 137.0 L 954.0 229.0 Q 948.0 237.0 940.0 237.0 L 86.0 237.0 Q 78.0 237.0 72.0 229.0 L 21.0 137.0 Q 16.0 125.0 21.0 113.0 L 72.0 11.0 Q 78.0 3.0 86.0 3.0 Z" class="lab-day-card-path" fill="#FFFDF9" stroke="#EBC9B5" stroke-width="1.8"/>
+        </svg>
 
-            <h3 class="lab-day-question">“${day.question}”</h3>
-            <h4 class="lab-day-headline">${day.headline}</h4>
-            <p class="lab-day-narrative">${day.narrative}</p>
+        <div class="lab-day-inner">
+          <!-- Left Column: Hexagonal Artwork -->
+          <div class="lab-day-art-hex">
+            <svg viewBox="0 0 260 190" class="lab-art-hex-svg" aria-label="${day.question} Artwork">
+              <defs>
+                <clipPath id="hex-clip-${num}">
+                  <path d="${hexClipPath}" />
+                </clipPath>
+              </defs>
+              ${artSvgInner}
+              <path d="${hexClipPath}" fill="none" stroke="#FFFFFF" stroke-width="2.5" class="lab-art-hex-outline" />
+            </svg>
           </div>
 
-          <div>
-            <div class="lab-freq-grid">
+          <!-- Right Column: Content -->
+          <div class="lab-day-content">
+            <div class="lab-day-date-eyebrow">
+              <span>${dateFormatted}</span>
+            </div>
+
+            <h3 class="lab-day-question">${questionHtml}</h3>
+
+            <div class="lab-day-freq-row">
               ${freqPillsHtml}
             </div>
 
-            <div class="lab-meta-row">
-              <span>${day.totalAnswers} AI answers &middot; ${day.totalLabs} labs &middot; ${day.totalRounds} rounds</span>
-            </div>
-
-            <div class="lab-people-bar" title="Inspect human reveal comparison">
-              <div class="lab-people-bar-left">
-                <div class="lab-people-beacon" aria-hidden="true">
-                  <span class="beacon-glyph">⬡</span>
-                </div>
-                <div class="lab-people-col">
-                  <span class="lab-people-title">${day.peopleTitle}</span>
-                  <span class="lab-people-sub">${day.peopleSub} &middot; open human reveal</span>
-                </div>
+            <div class="lab-day-meta-row">
+              <div class="lab-day-meta-left">
+                <span class="lab-meta-item">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#B84D24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                  <span>${day.totalAnswers} people</span>
+                </span>
+                <span class="lab-meta-dot">&middot;</span>
+                <span class="lab-meta-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B84D24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 2v7.31L4.5 18.5A2 2 0 0 0 6.2 21.5h11.6a2 2 0 0 0 1.7-3L14 9.31V2"></path>
+                  </svg>
+                  <span>${day.totalLabs} labs</span>
+                </span>
+                <span class="lab-meta-dot">&middot;</span>
+                <span class="lab-meta-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B84D24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                  </svg>
+                  <span>${day.totalRounds} rounds</span>
+                </span>
               </div>
-              <div class="lab-people-action">
-                <span>Compare with People</span>
-                <span class="lab-people-arrow">&rarr;</span>
+
+              <div class="lab-day-meta-divider"></div>
+
+              <div class="lab-day-meta-right">
+                <button class="lab-day-compare-btn" type="button">Compare &rarr;</button>
               </div>
             </div>
           </div>
         </div>
       `;
 
-      card.addEventListener('click', (e) => {
-        if (e.target.closest('.lab-people-bar')) {
-          e.stopPropagation();
-          triggerHumanRevealForDay(day);
-          return;
-        }
+      // Compare button triggers reveal comparison
+      card.querySelector('.lab-day-compare-btn')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        triggerHumanRevealForDay(day);
+      });
+
+      // Card click opens day detail modal
+      card.addEventListener('click', () => {
         openLabDayDetailModal(day.dayNum);
       });
 
       feed.appendChild(card);
     });
   });
-}
-
-function getDayArtworkHTML(day) {
-  if (day.artImage) {
-    return `
-      <div class="lab-day-art">
-        <img src="${day.artImage}" alt="${day.question}" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'lab-day-art-fallback\\'><span class=\\'lab-art-glyph\\'>&ldquo;${day.bins[0]?.word || 'Art'}&rdquo;</span><span class=\\'lab-art-tag\\'>${day.dayCode}</span></div>';">
-      </div>
-    `;
-  }
-
-  const topWord = day.bins[0]?.word || "Signal";
-  const num = day.dayNum;
-  return `
-    <div class="lab-day-art">
-      <div class="lab-day-art-fallback">
-        <svg viewBox="0 0 200 130" style="width:100%; height:100%; position:absolute; top:0; left:0; opacity:0.18;">
-          <defs>
-            <radialGradient id="grad_${num}" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="var(--clay)" stop-opacity="0.32"/>
-              <stop offset="100%" stop-color="var(--green)" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          <rect width="200" height="130" fill="url(#grad_${num})"/>
-          <circle cx="${70 + (num % 60)}" cy="65" r="${26 + (num % 24)}" fill="none" stroke="var(--clay)" stroke-width="1.3" stroke-dasharray="3 3"/>
-          <circle cx="${130 - (num % 40)}" cy="65" r="${18 + (num % 18)}" fill="none" stroke="var(--green)" stroke-width="1.3"/>
-        </svg>
-        <span class="lab-art-glyph">&ldquo;${topWord}&rdquo;</span>
-        <span class="lab-art-tag">${day.dayCode} &middot; Machine Art</span>
-      </div>
-    </div>
-  `;
 }
 
 function triggerHumanRevealForDay(day) {

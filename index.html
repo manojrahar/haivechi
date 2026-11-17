@@ -11,7 +11,7 @@
   <!-- Typography: Authentic Cormorant Garamond & JetBrains Mono + Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -138,12 +138,30 @@
             </svg>
           </div>
 
-          <!-- 4. 3 Connected Process Cards (01, 02, 03) with Hexagon Geometry & Whole Hover Animation -->
+          <!-- 4. 3 Connected Process Cards (01, 02, 03) with Living Flow Animation -->
           <div class="ritual-process-strip">
-            <!-- Card 01 -->
+            <!-- Shared SVG Gradients & Filters for Process Strip Flow Animation -->
+            <svg width="0" height="0" style="position:absolute;visibility:hidden;" aria-hidden="true">
+              <defs>
+                <linearGradient id="processFillGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#FDEEE5" stop-opacity="0.95"/>
+                  <stop offset="50%" stop-color="#FDF3EB" stop-opacity="0.85"/>
+                  <stop offset="100%" stop-color="#FFFDF9" stop-opacity="0.5"/>
+                </linearGradient>
+                <linearGradient id="processFillGradDark" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#2C3D34" stop-opacity="0.95"/>
+                  <stop offset="50%" stop-color="#24342C" stop-opacity="0.85"/>
+                  <stop offset="100%" stop-color="#1A2620" stop-opacity="0.5"/>
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <!-- Card 01: The Question -->
             <div class="ritual-hex-card card-step-1" tabindex="0" role="region" aria-label="Step 1: The Question">
               <svg class="hex-card-svg-bg" viewBox="0 0 320 96" preserveAspectRatio="none" aria-hidden="true">
-                <polygon points="22,3 298,3 317,48 298,93 22,93 3,48" vector-effect="non-scaling-stroke" stroke-linejoin="round"/>
+                <path class="card-bg-path" d="M 19.2 13.4 Q 24.0 3.0 35.5 3.0 L 284.5 3.0 Q 296.0 3.0 300.8 13.4 L 313.4 40.4 Q 317.0 48.0 313.4 55.6 L 300.8 82.6 Q 296.0 93.0 284.5 93.0 L 35.5 93.0 Q 24.0 93.0 19.2 82.6 L 6.6 55.6 Q 3.0 48.0 6.6 40.4 Z" vector-effect="non-scaling-stroke"/>
+                <path class="card-flow-fill" d="M 19.2 13.4 Q 24.0 3.0 35.5 3.0 L 284.5 3.0 Q 296.0 3.0 300.8 13.4 L 313.4 40.4 Q 317.0 48.0 313.4 55.6 L 300.8 82.6 Q 296.0 93.0 284.5 93.0 L 35.5 93.0 Q 24.0 93.0 19.2 82.6 L 6.6 55.6 Q 3.0 48.0 6.6 40.4 Z" vector-effect="non-scaling-stroke"/>
+                <path class="card-tracer-path" d="M 19.2 13.4 Q 24.0 3.0 35.5 3.0 L 284.5 3.0 Q 296.0 3.0 300.8 13.4 L 313.4 40.4 Q 317.0 48.0 313.4 55.6 L 300.8 82.6 Q 296.0 93.0 284.5 93.0 L 35.5 93.0 Q 24.0 93.0 19.2 82.6 L 6.6 55.6 Q 3.0 48.0 6.6 40.4 Z" vector-effect="non-scaling-stroke"/>
               </svg>
               <div class="hex-card-body">
                 <span class="hex-card-num">01</span>
@@ -155,13 +173,18 @@
               </div>
             </div>
 
-            <!-- Connector Line -->
-            <div class="hex-card-connector" aria-hidden="true"></div>
+            <!-- Connector Line 1 -> 2 with Traveling Light Dot -->
+            <div class="hex-card-connector connector-1-2" aria-hidden="true">
+              <span class="connector-track"></span>
+              <span class="connector-pulse"></span>
+            </div>
 
-            <!-- Card 02 -->
+            <!-- Card 02: Your Word -->
             <div class="ritual-hex-card card-step-2" tabindex="0" role="region" aria-label="Step 2: Your Word">
               <svg class="hex-card-svg-bg" viewBox="0 0 320 96" preserveAspectRatio="none" aria-hidden="true">
-                <polygon points="22,3 298,3 317,48 298,93 22,93 3,48" vector-effect="non-scaling-stroke" stroke-linejoin="round"/>
+                <path class="card-bg-path" d="M 19.2 13.4 Q 24.0 3.0 35.5 3.0 L 284.5 3.0 Q 296.0 3.0 300.8 13.4 L 313.4 40.4 Q 317.0 48.0 313.4 55.6 L 300.8 82.6 Q 296.0 93.0 284.5 93.0 L 35.5 93.0 Q 24.0 93.0 19.2 82.6 L 6.6 55.6 Q 3.0 48.0 6.6 40.4 Z" vector-effect="non-scaling-stroke"/>
+                <path class="card-flow-fill" d="M 19.2 13.4 Q 24.0 3.0 35.5 3.0 L 284.5 3.0 Q 296.0 3.0 300.8 13.4 L 313.4 40.4 Q 317.0 48.0 313.4 55.6 L 300.8 82.6 Q 296.0 93.0 284.5 93.0 L 35.5 93.0 Q 24.0 93.0 19.2 82.6 L 6.6 55.6 Q 3.0 48.0 6.6 40.4 Z" vector-effect="non-scaling-stroke"/>
+                <path class="card-tracer-path" d="M 19.2 13.4 Q 24.0 3.0 35.5 3.0 L 284.5 3.0 Q 296.0 3.0 300.8 13.4 L 313.4 40.4 Q 317.0 48.0 313.4 55.6 L 300.8 82.6 Q 296.0 93.0 284.5 93.0 L 35.5 93.0 Q 24.0 93.0 19.2 82.6 L 6.6 55.6 Q 3.0 48.0 6.6 40.4 Z" vector-effect="non-scaling-stroke"/>
               </svg>
               <div class="hex-card-body">
                 <span class="hex-card-num">02</span>
@@ -173,13 +196,18 @@
               </div>
             </div>
 
-            <!-- Connector Line -->
-            <div class="hex-card-connector" aria-hidden="true"></div>
+            <!-- Connector Line 2 -> 3 with Traveling Light Dot -->
+            <div class="hex-card-connector connector-2-3" aria-hidden="true">
+              <span class="connector-track"></span>
+              <span class="connector-pulse"></span>
+            </div>
 
-            <!-- Card 03 -->
+            <!-- Card 03: The Reveal -->
             <div class="ritual-hex-card card-step-3" tabindex="0" role="region" aria-label="Step 3: The Reveal">
               <svg class="hex-card-svg-bg" viewBox="0 0 320 96" preserveAspectRatio="none" aria-hidden="true">
-                <polygon points="22,3 298,3 317,48 298,93 22,93 3,48" vector-effect="non-scaling-stroke" stroke-linejoin="round"/>
+                <path class="card-bg-path" d="M 19.2 13.4 Q 24.0 3.0 35.5 3.0 L 284.5 3.0 Q 296.0 3.0 300.8 13.4 L 313.4 40.4 Q 317.0 48.0 313.4 55.6 L 300.8 82.6 Q 296.0 93.0 284.5 93.0 L 35.5 93.0 Q 24.0 93.0 19.2 82.6 L 6.6 55.6 Q 3.0 48.0 6.6 40.4 Z" vector-effect="non-scaling-stroke"/>
+                <path class="card-flow-fill" d="M 19.2 13.4 Q 24.0 3.0 35.5 3.0 L 284.5 3.0 Q 296.0 3.0 300.8 13.4 L 313.4 40.4 Q 317.0 48.0 313.4 55.6 L 300.8 82.6 Q 296.0 93.0 284.5 93.0 L 35.5 93.0 Q 24.0 93.0 19.2 82.6 L 6.6 55.6 Q 3.0 48.0 6.6 40.4 Z" vector-effect="non-scaling-stroke"/>
+                <path class="card-tracer-path" d="M 19.2 13.4 Q 24.0 3.0 35.5 3.0 L 284.5 3.0 Q 296.0 3.0 300.8 13.4 L 313.4 40.4 Q 317.0 48.0 313.4 55.6 L 300.8 82.6 Q 296.0 93.0 284.5 93.0 L 35.5 93.0 Q 24.0 93.0 19.2 82.6 L 6.6 55.6 Q 3.0 48.0 6.6 40.4 Z" vector-effect="non-scaling-stroke"/>
               </svg>
               <div class="hex-card-body">
                 <span class="hex-card-num">03</span>
@@ -192,24 +220,30 @@
             </div>
           </div>
 
-          <!-- 5. Lower Eyebrow with flanking thin rules -->
-          <div class="ritual-eyebrow-line lower-eyebrow">
-            <span class="eyebrow-rule"></span>
-            <span class="eyebrow-text" id="todayEyebrow">WEDNESDAY &nbsp;&middot;&nbsp; TODAY&rsquo;S QUESTION</span>
-            <span class="eyebrow-rule"></span>
-          </div>
+          <!-- 5. Focal Action Zone: Today's Question & Input Form -->
+          <div class="ritual-action-zone">
+            <!-- Lower Eyebrow with flanking thin rules -->
+            <div class="ritual-eyebrow-line lower-eyebrow">
+              <span class="eyebrow-rule"></span>
+              <span class="eyebrow-text" id="todayEyebrow">WEDNESDAY &nbsp;&middot;&nbsp; TODAY&rsquo;S QUESTION</span>
+              <span class="eyebrow-rule"></span>
+            </div>
 
-          <!-- 6. Today's Question Headline -->
-          <h2 class="ritual-question-title" id="todayPromptQuestion">
-            One word for <span class="question-accent-italic">home?</span>
-          </h2>
+            <!-- Today's Question Headline -->
+            <h2 class="ritual-question-title" id="todayPromptQuestion">
+              One word for <span class="question-accent-italic">home?</span>
+            </h2>
 
-          <!-- 7. Pill Input & Button Form with Rich Hover Animation -->
+            <!-- Input & Button Form Matched Exactly to User's Inspiration Image -->
+          <!-- 7. Hexagonal Input & Button Form (Matching Process Card Shape) -->
           <form class="ritual-prompt-form" id="wordPromptForm" autocomplete="off">
-            <div class="field-wrapper ritual-input-box">
+            <div class="field-wrapper ritual-hex-input-box">
+              <svg class="ritual-input-hex-svg" viewBox="0 0 680 62" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M 17.7 7.0 L 6.0 25.0 Q 2.0 31.0 6.0 37.0 L 17.7 55.0 Q 24.7 60.0 32.7 60.0 L 647.3 60.0 Q 655.3 60.0 662.3 55.0 L 674.0 37.0 Q 678.0 31.0 674.0 25.0 L 662.3 7.0 Q 655.3 2.0 647.3 2.0 L 32.7 2.0 Q 24.7 2.0 17.7 7.0 Z" vector-effect="non-scaling-stroke"/>
+              </svg>
               <input 
                 id="wordInputField" 
-                class="ritual-pill-input" 
+                class="ritual-hex-input" 
                 type="text" 
                 placeholder="Type your one word (e.g. &ldquo;Sanctuary&rdquo;) &rarr;" 
                 maxlength="30"
@@ -219,46 +253,100 @@
               >
             </div>
 
-            <button class="ritual-pill-btn" id="submitWordBtn" type="submit">
-              <span>Contribute to Today's Hive &nbsp;&middot;&nbsp; Reveal at Midnight</span>
-              <span class="btn-arrow-icon" aria-hidden="true">&nearr;</span>
+            <!-- Rounded Hexagon CTA Button matching Card shape with generous gap -->
+            <button class="ritual-hex-cta-btn" id="submitWordBtn" type="submit">
+              <svg class="ritual-btn-hex-svg" viewBox="0 0 680 56" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M 15.6 7.0 L 6.0 22.0 Q 2.0 28.0 6.0 34.0 L 15.6 49.0 Q 22.6 54.0 30.6 54.0 L 649.4 54.0 Q 657.4 54.0 664.4 49.0 L 674.0 34.0 Q 678.0 28.0 674.0 22.0 L 664.4 7.0 Q 657.4 2.0 649.4 2.0 L 30.6 2.0 Q 22.6 2.0 15.6 7.0 Z" vector-effect="non-scaling-stroke"/>
+              </svg>
+              <span class="ritual-btn-label">Give it one thing</span>
             </button>
             
             <p class="form-error" id="formErrorMsg"></p>
           </form>
+          </div>
         </div>
 
         <div class="reminders-panel solid-card">
+          <!-- Diagonally Clipped Octagonal Card SVG Background with Generous Curved Corners -->
+          <svg class="rem-card-svg-bg" viewBox="0 0 1000 240" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M 78 2.0 L 922 2.0 Q 936 2.0 946.5 12.5 L 987.5 41.5 Q 998.0 52 998.0 66 L 998.0 174 Q 998.0 188 987.5 198.5 L 946.5 227.5 Q 936 238.0 922 238.0 L 78 238.0 Q 64 238.0 53.5 227.5 L 12.5 198.5 Q 2.0 188 2.0 174 L 2.0 66 Q 2.0 52 12.5 41.5 L 53.5 12.5 Q 64 2.0 78 2.0 Z" vector-effect="non-scaling-stroke"/>
+          </svg>
+
+          <!-- Header Row -->
           <div class="rem-title-row">
-            <div class="rem-icon-badge">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="rem-hex-icon-badge">
+              <svg class="rem-badge-hex-svg" viewBox="0 0 46 50" aria-hidden="true">
+                <polygon points="23,2 44,13 44,37 23,48 2,37 2,13" stroke-linejoin="round"/>
+              </svg>
+              <svg class="rem-bell-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
                 <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
               </svg>
             </div>
-            <div>
+            <span class="rem-header-vsep" aria-hidden="true"></span>
+            <div class="rem-header-text">
               <h3 class="reminders-title">Daily Reveal Reminders</h3>
               <p class="reminders-subtitle">Get a quiet ping when today’s collective artwork drops at midnight.</p>
             </div>
           </div>
 
+          <!-- Middle Inputs & Button Row -->
           <form class="rem-form" id="reminderForm" onsubmit="event.preventDefault(); window.handleReminderSubmit();">
-            <input class="rem-input" id="remEmail" type="email" placeholder="you@somewhere.com" aria-label="Email address for reminder">
-            <input class="rem-input" id="remPhone" type="tel" placeholder="Phone (optional)" aria-label="Phone number for reminder">
-            <button class="rem-submit-btn" type="submit">
-              <span>Remind Me</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
+            <!-- Email Input -->
+            <div class="rem-hex-input-wrap">
+              <svg class="rem-hex-input-svg" viewBox="0 0 340 56" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M 14.0 7.5 L 5.5 21.5 Q 2.0 28.0 5.5 34.5 L 14.0 48.5 Q 19.0 54.0 26.0 54.0 L 314.0 54.0 Q 321.0 54.0 326.0 48.5 L 334.5 34.5 Q 338.0 28.0 334.5 21.5 L 326.0 7.5 Q 321.0 2.0 314.0 2.0 L 26.0 2.0 Q 19.0 2.0 14.0 7.5 Z" vector-effect="non-scaling-stroke"/>
               </svg>
+              <span class="rem-input-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </span>
+              <input class="rem-input-field" id="remEmail" type="email" placeholder="you@somewhere.com" aria-label="Email address for reminder">
+            </div>
+
+            <!-- Phone Input -->
+            <div class="rem-hex-input-wrap">
+              <svg class="rem-hex-input-svg" viewBox="0 0 340 56" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M 14.0 7.5 L 5.5 21.5 Q 2.0 28.0 5.5 34.5 L 14.0 48.5 Q 19.0 54.0 26.0 54.0 L 314.0 54.0 Q 321.0 54.0 326.0 48.5 L 334.5 34.5 Q 338.0 28.0 334.5 21.5 L 326.0 7.5 Q 321.0 2.0 314.0 2.0 L 26.0 2.0 Q 19.0 2.0 14.0 7.5 Z" vector-effect="non-scaling-stroke"/>
+              </svg>
+              <span class="rem-input-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </span>
+              <input class="rem-input-field" id="remPhone" type="tel" placeholder="Phone (optional)" aria-label="Phone number for reminder">
+            </div>
+
+            <!-- Remind Me Button -->
+            <button class="rem-hex-submit-btn" type="submit">
+              <svg class="rem-hex-btn-svg" viewBox="0 0 200 56" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M 14.0 7.5 L 5.5 21.5 Q 2.0 28.0 5.5 34.5 L 14.0 48.5 Q 19.0 54.0 26.0 54.0 L 174.0 54.0 Q 181.0 54.0 186.0 48.5 L 194.5 34.5 Q 198.0 28.0 194.5 21.5 L 186.0 7.5 Q 181.0 2.0 174.0 2.0 L 26.0 2.0 Q 19.0 2.0 14.0 7.5 Z" vector-effect="non-scaling-stroke"/>
+              </svg>
+              <span class="rem-btn-text">REMIND ME &rarr;</span>
             </button>
           </form>
 
+          <!-- Divider Rule -->
+          <div class="rem-divider-rule"></div>
+
+          <!-- Bottom Footer Row -->
           <div class="rem-footer-row">
-            <label class="rem-device-row">
-              <input type="checkbox" id="deviceNotificationCheck">
-              <span>Receive notifications on this device</span>
+            <label class="rem-device-row" for="deviceNotificationCheck">
+              <span class="rem-custom-checkbox">
+                <input type="checkbox" id="deviceNotificationCheck" checked>
+                <span class="rem-checkbox-box">
+                  <svg width="11" height="9" viewBox="0 0 11 9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="1.5 4.5 4.5 7.5 9.5 1.5"></polyline>
+                  </svg>
+                </span>
+              </span>
+              <span class="rem-check-label">Receive notifications on this device</span>
             </label>
+
+            <span class="rem-footer-vsep" aria-hidden="true"></span>
+
             <span class="rem-privacy-note">Zero spam &middot; One ping per day &middot; Unsubscribe anytime</span>
           </div>
 
@@ -267,31 +355,161 @@
       </section>
 
       <!-- ========================================================
-           VIEW 2: WAITING COUNTDOWN STATE
+           VIEW 2: WAITING COUNTDOWN STATE (Matched to Inspiration Screenshot)
            ======================================================== -->
       <section id="view-waiting" class="stage hidden fade-in">
-        <div class="waiting-box">
-          <p class="eyebrow">you gave</p>
-          <h2 class="given-word-display" id="submittedWordEcho">&ldquo;Sanctuary&rdquo;</h2>
-          
-          <div style="width: 80px; height: 1px; background: var(--line-strong); margin: 24px auto;"></div>
+        <div class="waiting-screen-container">
+          <!-- Top Eyebrow -->
+          <div class="ritual-eyebrow-line">
+            <span class="eyebrow-rule"></span>
+            <span class="eyebrow-text">WORD SUBMITTED</span>
+            <span class="eyebrow-rule"></span>
+          </div>
 
-          <p class="whisper-primary" style="font-size:22px;">When the day closes, everyone sees what we became &mdash; together.</p>
-          
-          <div class="countdown-clock" id="countdownClock">07:42:19</div>
-          <p class="eyebrow" style="margin-top: 10px;">until today's reveal</p>
+          <!-- Hero Heading -->
+          <h1 class="waiting-hero-title">Your word is in the <em>Hive!</em></h1>
+          <p class="waiting-hero-subtitle">You’ve contributed to today’s collective artwork.</p>
 
-          <div class="waiting-actions-container">
-            <p class="eyebrow" style="color: var(--clay);">while you wait &mdash;</p>
-            <div class="waiting-btns-row">
-              <button class="btn-waiting-primary" id="waitSeeHiveBtn" type="button">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
-                </svg>
-                <span>Explore Your Haive &rarr;</span>
-              </button>
-              <button class="btn-waiting-secondary" id="waitSeeMonthlyBtn" type="button">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <!-- Visual Centerpiece: Enlarged Glowing Honeycomb Cluster with Smooth Edge Fade -->
+          <div class="waiting-hex-cluster-wrap">
+            <svg class="waiting-hex-svg" viewBox="0 0 680 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="centerHexAura" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="var(--clay, #B0603A)" stop-opacity="0.55"/>
+                  <stop offset="60%" stop-color="var(--clay, #B0603A)" stop-opacity="0.18"/>
+                  <stop offset="100%" stop-color="var(--clay, #B0603A)" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="centerHexGlow" x="-35%" y="-35%" width="170%" height="170%">
+                  <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#B0603A" flood-opacity="0.6"/>
+                </filter>
+              </defs>
+
+              <!-- Radial Aura glow behind large center hexagon (Visible in dark mode, hidden in light mode) -->
+              <ellipse cx="340" cy="145" rx="125" ry="115" fill="url(#centerHexAura)" class="waiting-hex-aura" />
+
+              <!-- Row 1 (top): ambient hexagons with radial fade -->
+              <polygon points="211.0,26.5 249.1,48.5 249.1,92.5 211.0,114.5 172.9,92.5 172.9,48.5" class="waiting-hex-ambient hex-fade-outer" />
+              <polygon points="297.0,26.5 335.1,48.5 335.1,92.5 297.0,114.5 258.9,92.5 258.9,48.5" class="waiting-hex-ambient hex-fade-inner" />
+              <polygon points="383.0,26.5 421.1,48.5 421.1,92.5 383.0,114.5 344.9,92.5 344.9,48.5" class="waiting-hex-ambient hex-fade-inner" />
+              <polygon points="469.0,26.5 507.1,48.5 507.1,92.5 469.0,114.5 430.9,92.5 430.9,48.5" class="waiting-hex-ambient hex-fade-outer" />
+
+              <!-- Row 2 (middle): extreme ends with highest transparency, inner with medium -->
+              <polygon points="168.0,101.0 206.1,123.0 206.1,167.0 168.0,189.0 129.9,167.0 129.9,123.0" class="waiting-hex-ambient hex-fade-extreme" />
+              <polygon points="254.0,101.0 292.1,123.0 292.1,167.0 254.0,189.0 215.9,167.0 215.9,123.0" class="waiting-hex-ambient hex-fade-inner" />
+              <polygon points="426.0,101.0 464.1,123.0 464.1,167.0 426.0,189.0 387.9,167.0 387.9,123.0" class="waiting-hex-ambient hex-fade-inner" />
+              <polygon points="512.0,101.0 550.1,123.0 550.1,167.0 512.0,189.0 473.9,167.0 473.9,123.0" class="waiting-hex-ambient hex-fade-extreme" />
+
+              <!-- Row 3 (bottom): ambient hexagons with radial fade -->
+              <polygon points="211.0,175.5 249.1,197.5 249.1,241.5 211.0,263.5 172.9,241.5 172.9,197.5" class="waiting-hex-ambient hex-fade-outer" />
+              <polygon points="297.0,175.5 335.1,197.5 335.1,241.5 297.0,263.5 258.9,241.5 258.9,197.5" class="waiting-hex-ambient hex-fade-inner" />
+              <polygon points="383.0,175.5 421.1,197.5 421.1,241.5 383.0,263.5 344.9,241.5 344.9,197.5" class="waiting-hex-ambient hex-fade-inner" />
+              <polygon points="469.0,175.5 507.1,197.5 507.1,241.5 469.0,263.5 430.9,241.5 430.9,197.5" class="waiting-hex-ambient hex-fade-outer" />
+
+              <!-- Large Prominent Center Terracotta Hexagon (R=68) -->
+              <polygon points="340.0,77.0 398.9,111.0 398.9,179.0 340.0,213.0 281.1,179.0 281.1,111.0" class="waiting-hex-center" />
+
+              <!-- User's Submitted Word Inside Large Center Hexagon (Centered, Prominent, Highly Legible) -->
+              <text id="submittedWordEcho" x="340" y="146" text-anchor="middle" dominant-baseline="central" class="waiting-hex-word">hi</text>
+            </svg>
+          </div>
+
+          <!-- Countdown Pill Card -->
+          <div class="waiting-countdown-pill">
+            <div class="countdown-pill-left">
+              <svg class="pill-calendar-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+                <circle cx="16" cy="16" r="4" fill="var(--paper)"></circle>
+                <polyline points="16 14 16 16 17.5 16"></polyline>
+              </svg>
+              <span class="countdown-pill-title">Until Today&rsquo;s Reveal</span>
+            </div>
+
+            <div class="countdown-pill-divider"></div>
+
+            <div class="countdown-pill-right" id="countdownClock">
+              <div class="countdown-unit-col">
+                <span class="countdown-num" id="countdownHours">16</span>
+                <span class="countdown-label">HOURS</span>
+              </div>
+              <span class="countdown-separator">:</span>
+              <div class="countdown-unit-col">
+                <span class="countdown-num" id="countdownMinutes">48</span>
+                <span class="countdown-label">MINUTES</span>
+              </div>
+              <span class="countdown-separator">:</span>
+              <div class="countdown-unit-col">
+                <span class="countdown-num" id="countdownSeconds">16</span>
+                <span class="countdown-label">SECONDS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Proof Counter -->
+          <div class="waiting-social-proof">
+            <svg class="social-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span class="social-text"><strong class="social-highlight">4,821</strong> people have answered today so far.</span>
+          </div>
+
+          <!-- Primary CTA Button -->
+          <button class="waiting-explore-btn" id="waitExploreYesterdayBtn" type="button">
+            While you wait, explore yesterday&rsquo;s reveal &rarr;
+          </button>
+
+          <!-- Secondary Link -->
+          <a href="#" class="waiting-lab-link" id="waitCheckLabsLink">
+            <u>Or check how the 11 AI labs answered</u> &rarr;
+          </a>
+
+          <!-- Subtle word changer for testing / reset -->
+          <div style="margin-top: 14px;">
+            <button class="btn-ghost-minimal" id="resetWordBtn" type="button" title="Test changing word">Change word / Shared computer?</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           VIEW 3: THE HIVE (Recreated Exactly from Reference)
+           ======================================================== -->
+      <section id="view-hive" class="stage top-aligned hidden fade-in hive-page-section">
+        <div class="hive-main-content-wrap">
+          <!-- Page Introduction -->
+          <div class="hive-hero-intro">
+            <div class="hive-eyebrow-lockup">
+              <span class="hive-eyebrow-rule" aria-hidden="true"></span>
+              <span class="hive-eyebrow-text">THE COLLECTIVE ARCHIVE &middot; YOUR DAILY CONTRIBUTIONS</span>
+              <span class="hive-eyebrow-rule" aria-hidden="true"></span>
+            </div>
+            
+            <h1 class="hive-headline">
+              Your <span class="hive-headline-italic">Haive</span>
+            </h1>
+
+            <p class="hive-subhead">
+              Explore daily collective metamorphoses, semantic clusters, and your submitted instinct words.
+            </p>
+
+            <!-- Filter Pills Row -->
+            <div class="hive-filters-container">
+              <div class="hive-filters-group">
+                <button class="filter-chip active" data-filter="all">All Days</button>
+                <button class="filter-chip" data-filter="today">Active Today</button>
+                <button class="filter-chip" data-filter="revealed">Revealed (Available)</button>
+                <button class="filter-chip" data-filter="upcoming">Coming Soon</button>
+                <button class="filter-chip" data-filter="mine">Your Chi</button>
+              </div>
+
+              <div class="hive-filter-divider" aria-hidden="true"></div>
+
+              <button class="hive-monthly-btn" id="hiveToMonthlyBtn" type="button" title="Switch to Monthly Summary Calendar">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                   <line x1="16" y1="2" x2="16" y2="6"></line>
                   <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -300,51 +518,16 @@
                 <span>Monthly Summary &rarr;</span>
               </button>
             </div>
-            <button class="btn-ghost" id="resetWordBtn" type="button">Change word / Shared computer?</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- ========================================================
-           VIEW 3: THE HIVE (Redesigned with Clear Active, Revealed & Coming Soon Separation)
-           ======================================================== -->
-      <section id="view-hive" class="stage top-aligned hidden fade-in">
-        <div class="hive-header-row">
-          <div>
-            <p class="eyebrow" style="justify-content: flex-start;">the collective archive &middot; your daily contributions</p>
-            <h1 style="font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 500; color: var(--green); margin-top: 6px;">
-              Your Haive
-            </h1>
-            <p style="color: var(--dim); font-size: 14.5px; margin-top: 4px;">
-              Explore daily collective metamorphoses, semantic clusters, and your submitted instinct words.
-            </p>
           </div>
 
-          <div class="archive-filters">
-            <button class="filter-chip active" data-filter="all">All Days</button>
-            <button class="filter-chip" data-filter="today">Active Today</button>
-            <button class="filter-chip" data-filter="revealed">Revealed (Available)</button>
-            <button class="filter-chip" data-filter="upcoming">Coming Soon</button>
-            <button class="filter-chip" data-filter="mine">Your Chi</button>
-            <button class="filter-chip view-switch-chip" id="hiveToMonthlyBtn" type="button" title="Switch to Monthly Summary Calendar">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-              </svg>
-              <span>Monthly Summary &rarr;</span>
-            </button>
+          <!-- Clear Grouped Archive Container -->
+          <div class="archive-groups-wrapper" id="hiveGroupsWrapper">
+            <!-- Populated dynamically:
+                 1. Active Today (Featured Elongated Hexagon Card)
+                 2. Revealed Archives (3 Available to Explore)
+                 3. Scheduled Rituals (Coming Soon)
+            -->
           </div>
-        </div>
-
-        <!-- Clear Grouped Archive Container (Per Section 3 of Audit PDF) -->
-        <div class="archive-groups-wrapper" id="hiveGroupsWrapper">
-          <!-- Populated by JavaScript into distinct groups:
-               1. Active Today (Available Live)
-               2. Revealed Archives (Available to Explore)
-               3. Scheduled Hives (Coming Soon)
-          -->
         </div>
       </section>
 
@@ -363,69 +546,71 @@
               <span class="lab-hero-subtitle-dim">Each day reveals here once the people’s reveal is out.</span>
             </p>
 
-            <!-- Reference-Inspired 4-Step Chevron Process Ribbon -->
-            <div class="lab-chevron-strip">
-              <!-- Step 01 -->
-              <div class="chevron-step step-1">
-                <div class="chevron-top">
-                  <span class="chevron-num">01 &mdash;</span>
-                  <span class="chevron-icon">✦</span>
-                </div>
-                <h3 class="chevron-title">Eleven Global Labs</h3>
-                <p class="chevron-desc">
-                  The day&rsquo;s question is put to eleven AI models in many languages, over 6 nightly rounds.
-                </p>
-                <div class="chevron-line-divider" aria-hidden="true">
-                  <svg viewBox="0 0 20 100" preserveAspectRatio="none">
-                    <path d="M1,0 L18,50 L1,100" fill="none" stroke="currentColor" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
-                  </svg>
-                </div>
-              </div>
+            <!-- Reference-Inspired 4-Step Process Ribbon in Elongated Hexagon Card -->
+            <div class="lab-hex-card">
+              <svg class="lab-card-svg-bg" viewBox="0 0 1140 230" preserveAspectRatio="none" aria-hidden="true">
+                <g class="lab-segments-group">
+                  <path id="labSegment1" class="lab-segment" d="M 72.0 3.0 L 310.0 3.0 L 332.0 115.0 L 310.0 227.0 L 72.0 227.0 Q 48.0 227.0 36.0 202.0 L 15.0 142.0 Q 2.0 115.0 15.0 88.0 L 36.0 28.0 Q 48.0 3.0 72.0 3.0 Z" />
+                  <path id="labSegment2" class="lab-segment" d="M 310.0 3.0 L 570.0 3.0 L 592.0 115.0 L 570.0 227.0 L 310.0 227.0 L 332.0 115.0 Z" />
+                  <path id="labSegment3" class="lab-segment" d="M 570.0 3.0 L 830.0 3.0 L 852.0 115.0 L 830.0 227.0 L 570.0 227.0 L 592.0 115.0 Z" />
+                  <path id="labSegment4" class="lab-segment" d="M 830.0 3.0 L 1068.0 3.0 Q 1092.0 3.0 1104.0 28.0 L 1125.0 88.0 Q 1138.0 115.0 1125.0 142.0 L 1104.0 202.0 Q 1092.0 227.0 1068.0 227.0 L 830.0 227.0 L 852.0 115.0 Z" />
+                </g>
+                <g class="lab-dividers-group">
+                  <path id="labDivider1" class="lab-divider-line" d="M 310.0 3.0 L 332.0 115.0 L 310.0 227.0" />
+                  <path id="labDivider2" class="lab-divider-line" d="M 570.0 3.0 L 592.0 115.0 L 570.0 227.0" />
+                  <path id="labDivider3" class="lab-divider-line" d="M 830.0 3.0 L 852.0 115.0 L 830.0 227.0" />
+                </g>
+                <path d="M 72.0 3.0 L 1068.0 3.0 Q 1092.0 3.0 1104.0 28.0 L 1125.0 88.0 Q 1138.0 115.0 1125.0 142.0 L 1104.0 202.0 Q 1092.0 227.0 1068.0 227.0 L 72.0 227.0 Q 48.0 227.0 36.0 202.0 L 15.0 142.0 Q 2.0 115.0 15.0 88.0 L 36.0 28.0 Q 48.0 3.0 72.0 3.0 Z" class="lab-card-outer-outline" />
+              </svg>
 
-              <!-- Step 02 -->
-              <div class="chevron-step step-2">
-                <div class="chevron-top">
-                  <span class="chevron-num">02 &mdash;</span>
-                  <span class="chevron-icon">★</span>
+              <div class="lab-steps-grid">
+                <!-- Step 01 -->
+                <div class="lab-step-item" data-step="1">
+                  <div class="lab-step-top">
+                    <span class="lab-num-badge">01</span>
+                    <span class="lab-step-icon">✦</span>
+                  </div>
+                  <h3 class="lab-step-title">Eleven Global Labs</h3>
+                  <p class="lab-step-desc">
+                    The day&rsquo;s question is put to eleven AI models in many languages, over 6 nightly rounds.
+                  </p>
                 </div>
-                <h3 class="chevron-title">One Machine Reveal</h3>
-                <p class="chevron-desc">
-                  Hundreds of machine answers synthesize into one consensus. <em>Strictly isolated from the human hive.</em>
-                </p>
-                <div class="chevron-line-divider" aria-hidden="true">
-                  <svg viewBox="0 0 20 100" preserveAspectRatio="none">
-                    <path d="M1,0 L18,50 L1,100" fill="none" stroke="currentColor" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
-                  </svg>
-                </div>
-              </div>
 
-              <!-- Step 03 -->
-              <div class="chevron-step step-3">
-                <div class="chevron-top">
-                  <span class="chevron-num">03 &mdash;</span>
-                  <span class="chevron-icon">⬡</span>
+                <!-- Step 02 -->
+                <div class="lab-step-item" data-step="2">
+                  <div class="lab-step-top">
+                    <span class="lab-num-badge">02</span>
+                    <span class="lab-step-icon">★</span>
+                  </div>
+                  <h3 class="lab-step-title">One Machine Reveal</h3>
+                  <p class="lab-step-desc">
+                    Hundreds of machine answers synthesize into one consensus. Strictly isolated <strong>from the human hive.</strong>
+                  </p>
                 </div>
-                <h3 class="chevron-title">Its Own Month &amp; Art</h3>
-                <p class="chevron-desc">
-                  Every AI earns its own month: a 31-day honeycomb, its daily word, and its own generative picture.
-                </p>
-                <div class="chevron-line-divider" aria-hidden="true">
-                  <svg viewBox="0 0 20 100" preserveAspectRatio="none">
-                    <path d="M1,0 L18,50 L1,100" fill="none" stroke="currentColor" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
-                  </svg>
-                </div>
-              </div>
 
-              <!-- Step 04 -->
-              <div class="chevron-step step-4">
-                <div class="chevron-top">
-                  <span class="chevron-num">04 &mdash;</span>
-                  <span class="chevron-icon">↗</span>
+                <!-- Step 03 -->
+                <div class="lab-step-item" data-step="3">
+                  <div class="lab-step-top">
+                    <span class="lab-num-badge">03</span>
+                    <span class="lab-step-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-1px;"><polygon points="12 2 21 7.2 21 16.8 12 22 3 16.8 3 7.2 12 2"></polygon></svg></span>
+                  </div>
+                  <h3 class="lab-step-title">Its Own Month &amp; Art</h3>
+                  <p class="lab-step-desc">
+                    Every AI earns its own month: a 31-day honeycomb. Its daily word, and its own generative picture.
+                  </p>
                 </div>
-                <h3 class="chevron-title">The People&rsquo;s Mirror</h3>
-                <p class="chevron-desc">
-                  Machine days reveal here only after the people&rsquo;s reveal is published&mdash;preserving unprimed truth.
-                </p>
+
+                <!-- Step 04 -->
+                <div class="lab-step-item" data-step="4">
+                  <div class="lab-step-top">
+                    <span class="lab-num-badge">04</span>
+                    <span class="lab-step-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-1px;"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></span>
+                  </div>
+                  <h3 class="lab-step-title">The People&rsquo;s Mirror</h3>
+                  <p class="lab-step-desc">
+                    Machine days reveal here only after the people&rsquo;s reveal is published&mdash;preserving unprimed truth.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -628,65 +813,227 @@
       </section>
 
       <!-- ========================================================
-           VIEW 5: DEMO PAGE (Structured Sample Month Grid & Interactions per Section 4 of Audit)
+           VIEW 5: MONTHLY SUMMARY (Exact Reference Image Reproduction)
            ======================================================== -->
-      <section id="view-demo" class="stage top-aligned hidden fade-in">
-        <div class="demo-wrapper">
-          <div class="demo-header-row">
-            <div>
-              <p class="eyebrow" style="justify-content: flex-start;">collective monthly synthesis &middot; 31 daily metamorphoses</p>
-              <h1 style="font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 500; color: var(--green); margin-top: 6px;">
-                Your Monthly Summary
+      <section id="view-demo" class="stage top-aligned hidden fade-in monthly-summary-stage">
+        <!-- Ambient Decorative Honeycombs (Exact Reference Positions) -->
+        <svg class="summary-ambient-honeycomb summary-honeycomb-tl" viewBox="0 0 120 240" fill="none" aria-hidden="true">
+          <!-- Outer Col -->
+          <polygon points="12,14 26,22 26,38 12,46 -2,38 -2,22" stroke="rgba(176,96,58,0.42)" stroke-width="1.3" fill="none"/>
+          <polygon points="12,74 26,82 26,98 12,106 -2,98 -2,82" stroke="rgba(176,96,58,0.48)" stroke-width="1.3" fill="#F1DDCE" fill-opacity="0.85"/>
+          <polygon points="12,134 26,142 26,158 12,166 -2,158 -2,142" stroke="rgba(176,96,58,0.42)" stroke-width="1.3" fill="none"/>
+          <polygon points="12,194 26,202 26,218 12,226 -2,218 -2,202" stroke="rgba(176,96,58,0.38)" stroke-width="1.3" fill="none"/>
+          <!-- Inner Col -->
+          <polygon points="44,44 58,52 58,68 44,76 30,68 30,52" stroke="rgba(176,96,58,0.48)" stroke-width="1.3" fill="#F1DDCE" fill-opacity="0.85"/>
+          <polygon points="44,104 58,112 58,128 44,136 30,128 30,112" stroke="rgba(176,96,58,0.42)" stroke-width="1.3" fill="none"/>
+          <polygon points="44,164 58,172 58,188 44,196 30,188 30,172" stroke="rgba(176,96,58,0.38)" stroke-width="1.3" fill="none"/>
+        </svg>
+
+        <svg class="summary-ambient-honeycomb summary-honeycomb-tr" viewBox="0 0 120 280" fill="none" aria-hidden="true">
+          <!-- Outer Col -->
+          <polygon points="108,14 122,22 122,38 108,46 94,38 94,22" stroke="rgba(176,96,58,0.42)" stroke-width="1.3" fill="none"/>
+          <polygon points="108,74 122,82 122,98 108,106 94,98 94,82" stroke="rgba(176,96,58,0.48)" stroke-width="1.3" fill="#F1DDCE" fill-opacity="0.85"/>
+          <polygon points="108,134 122,142 122,158 108,166 94,158 94,142" stroke="rgba(176,96,58,0.42)" stroke-width="1.3" fill="none"/>
+          <polygon points="108,194 122,202 122,218 108,226 94,218 94,202" stroke="rgba(176,96,58,0.38)" stroke-width="1.3" fill="none"/>
+          <polygon points="108,254 122,262 122,278 108,286 94,278 94,262" stroke="rgba(176,96,58,0.35)" stroke-width="1.3" fill="none"/>
+          <!-- Inner Col -->
+          <polygon points="76,44 90,52 90,68 76,76 62,68 62,52" stroke="rgba(176,96,58,0.42)" stroke-width="1.3" fill="none"/>
+          <polygon points="76,104 90,112 90,128 76,136 62,128 62,112" stroke="rgba(176,96,58,0.42)" stroke-width="1.3" fill="none"/>
+          <polygon points="76,164 90,172 90,188 76,196 62,188 62,172" stroke="rgba(176,96,58,0.48)" stroke-width="1.3" fill="#F1DDCE" fill-opacity="0.85"/>
+          <polygon points="76,224 90,232 90,248 76,256 62,248 62,232" stroke="rgba(176,96,58,0.38)" stroke-width="1.3" fill="none"/>
+        </svg>
+
+        <svg class="summary-ambient-honeycomb summary-honeycomb-bl" viewBox="0 0 120 180" fill="none" aria-hidden="true">
+          <!-- Outer Col -->
+          <polygon points="12,14 26,22 26,38 12,46 -2,38 -2,22" stroke="rgba(176,96,58,0.42)" stroke-width="1.3" fill="none"/>
+          <polygon points="12,74 26,82 26,98 12,106 -2,98 -2,82" stroke="rgba(176,96,58,0.48)" stroke-width="1.3" fill="#F1DDCE" fill-opacity="0.85"/>
+          <polygon points="12,134 26,142 26,158 12,166 -2,158 -2,142" stroke="rgba(176,96,58,0.38)" stroke-width="1.3" fill="none"/>
+          <!-- Inner Col -->
+          <polygon points="44,44 58,52 58,68 44,76 30,68 30,52" stroke="rgba(176,96,58,0.48)" stroke-width="1.3" fill="#F1DDCE" fill-opacity="0.85"/>
+          <polygon points="44,104 58,112 58,128 44,136 30,128 30,112" stroke="rgba(176,96,58,0.42)" stroke-width="1.3" fill="none"/>
+        </svg>
+
+        <svg class="summary-ambient-honeycomb summary-honeycomb-br" viewBox="0 0 120 180" fill="none" aria-hidden="true">
+          <!-- Outer Col -->
+          <polygon points="108,14 122,22 122,38 108,46 94,38 94,22" stroke="rgba(176,96,58,0.42)" stroke-width="1.3" fill="none"/>
+          <polygon points="108,74 122,82 122,98 108,106 94,98 94,82" stroke="rgba(176,96,58,0.42)" stroke-width="1.3" fill="none"/>
+          <polygon points="108,134 122,142 122,158 108,166 94,158 94,142" stroke="rgba(176,96,58,0.38)" stroke-width="1.3" fill="none"/>
+          <!-- Inner Col -->
+          <polygon points="76,44 90,52 90,68 76,76 62,68 62,52" stroke="rgba(176,96,58,0.42)" stroke-width="1.3" fill="none"/>
+          <polygon points="76,104 90,112 90,128 76,136 62,128 62,112" stroke="rgba(176,96,58,0.48)" stroke-width="1.3" fill="#F1DDCE" fill-opacity="0.85"/>
+        </svg>
+
+        <div class="summary-content-wrapper">
+          <!-- 3. Hero section -->
+          <div class="summary-hero-row">
+            <div class="summary-hero-copy">
+              <div class="summary-mono-label">
+                <span class="mono-label-line"></span>
+                <span class="mono-label-text">MONTHLY SYNTHESIS</span>
+                <span class="mono-label-line"></span>
+              </div>
+              <h1 class="summary-hero-title">
+                Your <em>Monthly</em> Summary
               </h1>
-              <p style="color: var(--dim); font-size: 14.5px; margin-top: 4px; max-width: 760px;">
-                A complete month of daily instinct words converged into collective art. Explore any day to inspect the synthesized reveal, word cloud, and where participants landed.
+              <p class="summary-hero-subtitle">
+                A complete month of daily instinct words converged into collective art.
               </p>
             </div>
 
-            <div class="demo-summary-badge">
-              <span class="stat-num">31</span>
-              <span class="stat-lbl">Days Completed</span>
+            <!-- Right-aligned 31 Days badge -->
+            <div class="summary-days-badge">
+              <div class="days-badge-copy">
+                <span class="days-badge-num">31</span>
+                <span class="days-badge-lbl">DAYS COMPLETED</span>
+              </div>
+              <svg class="days-badge-hex-decor" viewBox="0 0 60 50" fill="none" aria-hidden="true">
+                <polygon points="38,8 48,14 48,26 38,32 28,26 28,14" fill="#F1DDCE" fill-opacity="0.8" stroke="rgba(176,96,58,0.4)" stroke-width="1.2"/>
+                <polygon points="48,22 58,28 58,40 48,46 38,40 38,28" fill="#F1DDCE" fill-opacity="0.5" stroke="rgba(176,96,58,0.3)" stroke-width="1.2"/>
+              </svg>
             </div>
           </div>
 
-          <!-- Month Stats Strip -->
-          <div class="demo-stats-strip">
-            <div class="stat-item">
-              <span class="stat-val">482,900+</span>
-              <span class="stat-tag">Words Collected</span>
+          <!-- 4. Statistics panel -->
+          <div class="summary-stats-panel">
+            <!-- Left Stat -->
+            <div class="summary-stat-col">
+              <div class="stat-icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B0603A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"></path>
+                  <path d="m22 12.5-8.58 3.91a2 2 0 0 1-1.66 0L2 12.5"></path>
+                  <path d="m22 17.5-8.58 3.91a2 2 0 0 1-1.66 0L2 17.5"></path>
+                </svg>
+              </div>
+              <div class="stat-meta">
+                <span class="stat-main-val">482,900+</span>
+                <span class="stat-main-lbl">WORDS COLLECTED</span>
+              </div>
             </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-              <span class="stat-val">31 Artworks</span>
-              <span class="stat-tag">Autonomous Synthesis</span>
+
+            <div class="summary-stat-divider"></div>
+
+            <!-- Center Stat -->
+            <div class="summary-stat-col">
+              <div class="stat-icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B0603A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 2v7.31L4.5 18.5A2 2 0 0 0 6.2 21.5h11.6a2 2 0 0 0 1.7-3L14 9.31V2"></path>
+                  <line x1="8.5" y1="2" x2="15.5" y2="2"></line>
+                </svg>
+              </div>
+              <div class="stat-meta">
+                <span class="stat-main-val">31 Artworks</span>
+                <span class="stat-main-lbl">AUTONOMOUS SYNTHESIS</span>
+              </div>
             </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-              <span class="stat-val">100% Blind</span>
-              <span class="stat-tag">Unprimed Intuition</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-              <span class="stat-val">Zero Accounts</span>
-              <span class="stat-tag">Client-side Privacy</span>
+
+            <div class="summary-stat-divider"></div>
+
+            <!-- Right Stat -->
+            <div class="summary-stat-col">
+              <div class="stat-icon-wrap">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B0603A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <div class="stat-meta">
+                <span class="stat-main-val">100% Blind</span>
+                <span class="stat-main-lbl">UNPRIMED INTUITION</span>
+              </div>
             </div>
           </div>
 
-          <!-- Balanced, Structured Calendar Grid (Section 4 of Audit) -->
-          <div class="demo-grid-toolbar">
-            <div class="week-filter-group">
-              <button class="filter-chip active" data-week="all">All 31 Days</button>
-              <button class="filter-chip" data-week="1">Week 1 (Days 1–7)</button>
-              <button class="filter-chip" data-week="2">Week 2 (Days 8–14)</button>
-              <button class="filter-chip" data-week="3">Week 3 (Days 15–21)</button>
-              <button class="filter-chip" data-week="4">Week 4+ (Days 22–31)</button>
+          <!-- 5. Daily Reveals section -->
+          <div class="summary-reveals-section">
+            <div class="summary-reveals-header">
+              <h2 class="summary-reveals-title">Daily Reveals</h2>
+              <a href="#" class="summary-reveals-link" id="exploreMonthLink">EXPLORE THE MONTH &rarr;</a>
             </div>
-            <span class="demo-click-hint">Click any day to open the reveal modal &rarr;</span>
-          </div>
 
-          <!-- Staggered Animated Grid Container -->
-          <div class="demo-calendar-grid" id="demoCalendarGrid">
-            <!-- Populated with 31 days by JavaScript -->
+            <!-- 4 Distinctive Elongated Hexagonal Cards Silhouette -->
+            <div class="summary-cards-row">
+              <!-- Card 1 -->
+              <div class="summary-hex-card" data-day="1">
+                <svg class="summary-card-svg-bg" viewBox="0 0 310 220" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M 34 8 Q 30 8 26 14 L 6 102 Q 2 110 6 118 L 26 206 Q 30 212 34 212 L 270 212 Q 276 212 280 206 L 304 118 Q 308 110 304 102 L 280 14 Q 276 8 270 8 Z" fill="#FFFFFF" stroke="#E6CDCE" stroke-width="1.4" vector-effect="non-scaling-stroke"/>
+                </svg>
+                <div class="summary-card-inner card-inner-first">
+                  <div class="demo-card-top-row">
+                    <span class="demo-card-badge">DAY 01</span>
+                    <span class="demo-card-date">Aug 1</span>
+                  </div>
+                  <h3 class="demo-card-question">&ldquo;What lingers after the storm?&rdquo;</h3>
+                  <div class="demo-card-divider"></div>
+                  <div class="demo-card-bottom-row">
+                    <span class="demo-card-answer">Petrichor</span>
+                    <span class="demo-card-vsep"></span>
+                    <span class="demo-card-count">14,311 words</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="summary-hex-card" data-day="2">
+                <svg class="summary-card-svg-bg" viewBox="0 0 310 220" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M 6 8 Q 12 8 16 14 L 40 102 Q 44 110 40 118 L 16 206 Q 12 212 6 212 L 270 212 Q 276 212 280 206 L 304 118 Q 308 110 304 102 L 280 14 Q 276 8 270 8 Z" fill="#FFFFFF" stroke="#E6CDCE" stroke-width="1.4" vector-effect="non-scaling-stroke"/>
+                </svg>
+                <div class="summary-card-inner card-inner-mid">
+                  <div class="demo-card-top-row">
+                    <span class="demo-card-badge">DAY 02</span>
+                    <span class="demo-card-date">Aug 2</span>
+                  </div>
+                  <h3 class="demo-card-question">&ldquo;One word for morning.&rdquo;</h3>
+                  <div class="demo-card-divider"></div>
+                  <div class="demo-card-bottom-row">
+                    <span class="demo-card-answer">Light</span>
+                    <span class="demo-card-vsep"></span>
+                    <span class="demo-card-count">15,050 words</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="summary-hex-card" data-day="3">
+                <svg class="summary-card-svg-bg" viewBox="0 0 310 220" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M 6 8 Q 12 8 16 14 L 40 102 Q 44 110 40 118 L 16 206 Q 12 212 6 212 L 270 212 Q 276 212 280 206 L 304 118 Q 308 110 304 102 L 280 14 Q 276 8 270 8 Z" fill="#FFFFFF" stroke="#E6CDCE" stroke-width="1.4" vector-effect="non-scaling-stroke"/>
+                </svg>
+                <div class="summary-card-inner card-inner-mid">
+                  <div class="demo-card-top-row">
+                    <span class="demo-card-badge">DAY 03</span>
+                    <span class="demo-card-date">Aug 3</span>
+                  </div>
+                  <h3 class="demo-card-question">&ldquo;The earliest memory of warmth.&rdquo;</h3>
+                  <div class="demo-card-divider"></div>
+                  <div class="demo-card-bottom-row">
+                    <span class="demo-card-answer">Fireplace</span>
+                    <span class="demo-card-vsep"></span>
+                    <span class="demo-card-count">15,789 words</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="summary-hex-card" data-day="4">
+                <svg class="summary-card-svg-bg" viewBox="0 0 310 220" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M 6 8 Q 12 8 16 14 L 40 102 Q 44 110 40 118 L 16 206 Q 12 212 6 212 L 270 212 Q 276 212 280 206 L 304 118 Q 308 110 304 102 L 280 14 Q 276 8 270 8 Z" fill="#FFFFFF" stroke="#E6CDCE" stroke-width="1.4" vector-effect="non-scaling-stroke"/>
+                </svg>
+                <div class="summary-card-inner card-inner-mid">
+                  <div class="demo-card-top-row">
+                    <span class="demo-card-badge">DAY 04</span>
+                    <span class="demo-card-date">Aug 4</span>
+                  </div>
+                  <h3 class="demo-card-question">&ldquo;What cannot be bought?&rdquo;</h3>
+                  <div class="demo-card-divider"></div>
+                  <div class="demo-card-bottom-row">
+                    <span class="demo-card-answer">Time</span>
+                    <span class="demo-card-vsep"></span>
+                    <span class="demo-card-count">16,528 words</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
