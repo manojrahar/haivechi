@@ -444,12 +444,16 @@ function animateHeroGSAP() {
   gsap.killTweensOf([
     ".site-header",
     ".watermark-glyph",
+    ".ritual-eyebrow-line",
+    ".ritual-hero-title",
+    ".ritual-hero-subtitle",
+    ".ritual-flourish-divider",
+    ".ritual-hex-card",
     "#todayEyebrow",
     "#todayPromptQuestion",
+    ".ritual-prompt-form",
     ".field-wrapper",
-    ".input-hint",
     "#submitWordBtn",
-    ".manifesto-card",
     ".reminders-panel"
   ]);
 
@@ -482,53 +486,52 @@ function animateHeroGSAP() {
     ease: "sine.inOut"
   });
 
-  // 3. Eyebrow
+  // 3. Top Eyebrow
   tl.fromTo(
-    "#todayEyebrow",
-    { y: 24, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.7 },
-    0.2
+    ".ritual-eyebrow-line:not(.lower-eyebrow)",
+    { y: 18, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.65 },
+    0.15
   );
 
-  // 4. Prompt Headline
+  // 4. Hero Headline
   tl.fromTo(
-    "#todayPromptQuestion",
-    { y: 36, opacity: 0, filter: "blur(6px)" },
-    { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.9, ease: "power4.out" },
-    0.32
+    ".ritual-hero-title",
+    { y: 26, opacity: 0, filter: "blur(4px)" },
+    { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.85, ease: "power4.out" },
+    0.25
   );
 
-
-  // 5. Input Field
+  // 5. Subtitle & Flourish
   tl.fromTo(
-    ".field-wrapper",
-    { y: 28, opacity: 0, scale: 0.98 },
-    { y: 0, opacity: 1, scale: 1, duration: 0.8, ease: "power3.out" },
-    0.46
+    [".ritual-hero-subtitle", ".ritual-flourish-divider"],
+    { y: 16, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.7, stagger: 0.1 },
+    0.35
   );
 
-  // 6. Input Hint text
+  // 6. 3 Hexagonal Process Cards (Staggered entrance)
   tl.fromTo(
-    ".input-hint",
-    { y: 14, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.6 },
-    0.6
+    ".ritual-hex-card",
+    { y: 24, opacity: 0, scale: 0.96 },
+    { y: 0, opacity: 1, scale: 1, duration: 0.75, stagger: 0.12, ease: "back.out(1.15)" },
+    0.45
   );
 
-  // 7. Primary Submit CTA Button
+  // 7. Lower Eyebrow & Question Title
   tl.fromTo(
-    "#submitWordBtn",
-    { y: 22, opacity: 0, scale: 0.97 },
-    { y: 0, opacity: 1, scale: 1, duration: 0.75, ease: "back.out(1.2)" },
-    0.72
+    [".lower-eyebrow", "#todayPromptQuestion"],
+    { y: 20, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.7, stagger: 0.1 },
+    0.65
   );
 
-  // 8. Manifesto Card
+  // 8. Input & Submit Form
   tl.fromTo(
-    ".manifesto-card",
-    { y: 22, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.75 },
-    0.86
+    ".ritual-prompt-form",
+    { y: 22, opacity: 0, scale: 0.98 },
+    { y: 0, opacity: 1, scale: 1, duration: 0.75, ease: "power3.out" },
+    0.78
   );
 
   // 9. Reminders Panel
@@ -536,7 +539,7 @@ function animateHeroGSAP() {
     ".reminders-panel",
     { y: 25, opacity: 0 },
     { y: 0, opacity: 1, duration: 0.8 },
-    0.98
+    0.92
   );
 }
 

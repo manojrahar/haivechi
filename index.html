@@ -109,139 +109,123 @@
            VIEW 1: TODAY (Redesigned Homepage Hero & Input UI)
            ======================================================== -->
       <section id="view-today" class="stage fade-in">
-        <div class="hero-prompt-wrapper">
-        <span class="watermark-glyph" aria-hidden="true">?</span>
+        <div class="hero-ritual-wrapper">
+          <span class="watermark-glyph" aria-hidden="true">?</span>
 
-        <p class="eyebrow" id="todayEyebrow">WEDNESDAY &middot; WORD DAY</p>
-        
-        <h1 class="prompt-headline" id="todayPromptQuestion">One word for home.</h1>
-
-        <!-- Redesigned Main Input with Balanced Proportions -->
-        <form class="prompt-form" id="wordPromptForm" autocomplete="off">
-          <div class="field-wrapper">
-            <input 
-              id="wordInputField" 
-              class="prompt-input" 
-              type="text" 
-              placeholder="One word. First instinct." 
-              maxlength="30"
-              aria-label="Your single word answer"
-              required
-              autofocus
-            >
+          <!-- 1. Top Eyebrow with flanking thin rules -->
+          <div class="ritual-eyebrow-line">
+            <span class="eyebrow-rule"></span>
+            <span class="eyebrow-text">THE GLOBAL DAILY RITUAL</span>
+            <span class="eyebrow-rule"></span>
           </div>
 
-          <div class="input-hint">
-            <span>Blind submission &middot; No peeking</span>
-            <span id="charCountNotice">Instant contribution</span>
-          </div>
+          <!-- 2. Main Hero Headline -->
+          <h1 class="ritual-hero-title">
+            One Word. <span class="title-accent-italic">A Shared World.</span>
+          </h1>
 
-          <button class="btn-primary" id="submitWordBtn" type="submit">
-            Give it one thing
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
+          <!-- 3. Subtitle / Narrative -->
+          <p class="ritual-hero-subtitle">
+            A 24-hour collective experiment &mdash; one question, thousands of anonymous words,<br>
+            revealed together as a piece of art at midnight.
+          </p>
+
+          <!-- Subtle flourish divider -->
+          <div class="ritual-flourish-divider" aria-hidden="true">
+            <svg width="48" height="6" viewBox="0 0 48 6" fill="none">
+              <path d="M0 3 Q 12 0, 24 3 T 48 3" stroke="var(--clay)" stroke-width="1.2" stroke-opacity="0.6"/>
+              <circle cx="24" cy="3" r="1.8" fill="var(--clay)"/>
             </svg>
-          </button>
-          
-          <p class="form-error" id="formErrorMsg"></p>
-
-          <div class="prompt-whisper-notes">
-            <p class="whisper-primary">No explanation. No peeking. Just yours.</p>
-            <p class="whisper-secondary">When the day closes, every word becomes one thing. You’ll see where yours landed.</p>
           </div>
-        </form>
 
-        <!-- Quick Access Hub to Your Haive and Monthly Summary -->
-        <div class="hero-quick-portals">
-          <div class="portal-badge">Direct Access &middot; Archives &amp; Synthesis</div>
-          <div class="portal-cards">
-            <button class="portal-card" id="quickPortalHive" type="button" aria-label="Go to Your Haive">
-              <div class="portal-card-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
-                </svg>
+          <!-- 4. 3 Connected Process Cards (01, 02, 03) with Hexagon Geometry & Whole Hover Animation -->
+          <div class="ritual-process-strip">
+            <!-- Card 01 -->
+            <div class="ritual-hex-card card-step-1" tabindex="0" role="region" aria-label="Step 1: The Question">
+              <svg class="hex-card-svg-bg" viewBox="0 0 320 96" preserveAspectRatio="none" aria-hidden="true">
+                <polygon points="22,3 298,3 317,48 298,93 22,93 3,48" vector-effect="non-scaling-stroke" stroke-linejoin="round"/>
+              </svg>
+              <div class="hex-card-body">
+                <span class="hex-card-num">01</span>
+                <span class="hex-card-vsep"></span>
+                <div class="hex-card-copy">
+                  <h3 class="hex-card-heading">The Question</h3>
+                  <p class="hex-card-sub">A shared prompt for everyone at 06:00 UTC</p>
+                </div>
               </div>
-              <div class="portal-card-text">
-                <span class="portal-title">Your Haive &rarr;</span>
-                <span class="portal-sub">Past prompts &amp; your instinct words</span>
-              </div>
-            </button>
-
-            <button class="portal-card" id="quickPortalMonthly" type="button" aria-label="Go to Your Monthly Summary">
-              <div class="portal-card-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                  <line x1="16" y1="2" x2="16" y2="6"></line>
-                  <line x1="8" y1="2" x2="8" y2="6"></line>
-                  <line x1="3" y1="10" x2="21" y2="10"></line>
-                </svg>
-              </div>
-              <div class="portal-card-text">
-                <span class="portal-title">Monthly Summary &rarr;</span>
-                <span class="portal-sub">Full 31-day visual synthesis</span>
-              </div>
-            </button>
-          </div>
-        </div>
-        </div>
-
-        <!-- Interactive 24-Hour Ritual Timeline (Clearly Shows What hAIve Chi Does & Is For) -->
-        <div class="manifesto-card timeline-explainer-section">
-          
-          <div class="timeline-intro-head">
-            <div class="timeline-mini-badge">
-              <span class="pulse-beacon"></span>
-              24-Hour Collective Cycle
             </div>
-            <h2 class="timeline-main-title">
-              How h<i>AI</i>ve Chi Works: From Instinct to Artwork
-            </h2>
+
+            <!-- Connector Line -->
+            <div class="hex-card-connector" aria-hidden="true"></div>
+
+            <!-- Card 02 -->
+            <div class="ritual-hex-card card-step-2" tabindex="0" role="region" aria-label="Step 2: Your Word">
+              <svg class="hex-card-svg-bg" viewBox="0 0 320 96" preserveAspectRatio="none" aria-hidden="true">
+                <polygon points="22,3 298,3 317,48 298,93 22,93 3,48" vector-effect="non-scaling-stroke" stroke-linejoin="round"/>
+              </svg>
+              <div class="hex-card-body">
+                <span class="hex-card-num">02</span>
+                <span class="hex-card-vsep"></span>
+                <div class="hex-card-copy">
+                  <h3 class="hex-card-heading">Your Word</h3>
+                  <p class="hex-card-sub">Contribute one word, anytime today</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Connector Line -->
+            <div class="hex-card-connector" aria-hidden="true"></div>
+
+            <!-- Card 03 -->
+            <div class="ritual-hex-card card-step-3" tabindex="0" role="region" aria-label="Step 3: The Reveal">
+              <svg class="hex-card-svg-bg" viewBox="0 0 320 96" preserveAspectRatio="none" aria-hidden="true">
+                <polygon points="22,3 298,3 317,48 298,93 22,93 3,48" vector-effect="non-scaling-stroke" stroke-linejoin="round"/>
+              </svg>
+              <div class="hex-card-body">
+                <span class="hex-card-num">03</span>
+                <span class="hex-card-vsep"></span>
+                <div class="hex-card-copy">
+                  <h3 class="hex-card-heading">The Reveal</h3>
+                  <p class="hex-card-sub">A collective artwork at 00:00 UTC</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Lower Eyebrow with flanking thin rules -->
+          <div class="ritual-eyebrow-line lower-eyebrow">
+            <span class="eyebrow-rule"></span>
+            <span class="eyebrow-text" id="todayEyebrow">WEDNESDAY &nbsp;&middot;&nbsp; TODAY&rsquo;S QUESTION</span>
+            <span class="eyebrow-rule"></span>
+          </div>
+
+          <!-- 6. Today's Question Headline -->
+          <h2 class="ritual-question-title" id="todayPromptQuestion">
+            One word for <span class="question-accent-italic">home?</span>
+          </h2>
+
+          <!-- 7. Pill Input & Button Form with Rich Hover Animation -->
+          <form class="ritual-prompt-form" id="wordPromptForm" autocomplete="off">
+            <div class="field-wrapper ritual-input-box">
+              <input 
+                id="wordInputField" 
+                class="ritual-pill-input" 
+                type="text" 
+                placeholder="Type your one word (e.g. &ldquo;Sanctuary&rdquo;) &rarr;" 
+                maxlength="30"
+                aria-label="Your single word answer"
+                required
+                autofocus
+              >
+            </div>
+
+            <button class="ritual-pill-btn" id="submitWordBtn" type="submit">
+              <span>Contribute to Today's Hive &nbsp;&middot;&nbsp; Reveal at Midnight</span>
+              <span class="btn-arrow-icon" aria-hidden="true">&nearr;</span>
+            </button>
             
-          </div>
-
-          <!-- Connected Horizontal Timeline Track -->
-          <div class="ritual-timeline">
-            <!-- Continuous Connecting Line -->
-            <div class="timeline-connector-bar">
-              <div class="connector-progress"></div>
-            </div>
-
-            <!-- Step 1 Milestone -->
-            <div class="timeline-milestone step-one">
-              <div class="milestone-node">
-                <span class="node-number">01</span>
-                <span class="node-symbol">?</span>
-              </div>
-              <div class="milestone-time">06:00 UTC &middot; Sunrise</div>
-              <h3 class="milestone-heading">The Universal Question</h3>
-              <p class="milestone-body">One prompt for everyone, everywhere.</p>
-            </div>
-
-            <!-- Step 2 Milestone -->
-            <div class="timeline-milestone step-two">
-              <div class="milestone-node">
-                <span class="node-number">02</span>
-                <span class="node-symbol">.</span>
-              </div>
-              <div class="milestone-time">Throughout Today</div>
-              <h3 class="milestone-heading">Your Blind Instinct</h3>
-              <p class="milestone-body">One word. 100% blind &amp; private.</p>
-            </div>
-
-            <!-- Step 3 Milestone -->
-            <div class="timeline-milestone step-three">
-              <div class="milestone-node">
-                <span class="node-number">03</span>
-                <span class="node-symbol">!</span>
-              </div>
-              <div class="milestone-time">00:00 UTC &middot; Midnight</div>
-              <h3 class="milestone-heading">The Collective Reveal</h3>
-              <p class="milestone-body">All words become daily collective art.</p>
-            </div>
-          </div>
-
-          
+            <p class="form-error" id="formErrorMsg"></p>
+          </form>
         </div>
 
         <div class="reminders-panel solid-card">

@@ -5332,3 +5332,437 @@ body:not([data-theme="dark"]) .hive-cell.lit {
     font-size: 1.25rem;
   }
 }
+
+/* ============================================================
+   The Global Daily Ritual — Authentic Homepage Hero Experience
+   ============================================================ */
+.hero-ritual-wrapper {
+  max-width: 1040px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 36px 20px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* 1. Eyebrow with flanking thin horizontal rules */
+.ritual-eyebrow-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 580px;
+  margin-bottom: 18px;
+}
+
+.ritual-eyebrow-line.lower-eyebrow {
+  margin-top: 48px;
+  margin-bottom: 14px;
+}
+
+.eyebrow-rule {
+  flex: 1;
+  height: 1px;
+  background: rgba(46, 74, 63, 0.22);
+}
+
+[data-theme="dark"] .eyebrow-rule {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.eyebrow-text {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--green);
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .eyebrow-text {
+  color: var(--green-l);
+}
+
+/* 2. Main Hero Headline */
+.ritual-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 5.5vw, 4.4rem);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  margin-bottom: 12px;
+}
+
+.title-accent-italic {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--clay);
+}
+
+/* 3. Narrative Subtitle */
+.ritual-hero-subtitle {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-weight: 300;
+  color: rgba(34, 48, 42, 0.82);
+  max-width: 780px;
+  margin: 0 auto 16px;
+  line-height: 1.45;
+}
+
+[data-theme="dark"] .ritual-hero-subtitle {
+  color: rgba(250, 247, 242, 0.75);
+}
+
+/* Central Flourish Ornament Divider */
+.ritual-flourish-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 34px;
+  opacity: 0.85;
+}
+
+/* 4. 3 Connected Process Cards Strip */
+.ritual-process-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  gap: 0;
+  position: relative;
+}
+
+.hex-card-connector {
+  flex: 0 0 28px;
+  height: 1.5px;
+  background: rgba(176, 96, 58, 0.45);
+  margin: 0;
+}
+
+[data-theme="dark"] .hex-card-connector {
+  background: rgba(200, 117, 77, 0.5);
+}
+
+/* Individual Hexagonal Process Card */
+.ritual-hex-card {
+  flex: 1;
+  max-width: 295px;
+  height: 90px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hex-card-svg-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 14px rgba(176, 96, 58, 0.08));
+  transition: filter 0.35s ease;
+}
+
+.hex-card-svg-bg polygon {
+  fill: #FFFDF9;
+  stroke: rgba(176, 96, 58, 0.28);
+  stroke-width: 1.2px;
+  transition: fill 0.3s ease, stroke 0.3s ease, stroke-width 0.3s ease;
+}
+
+[data-theme="dark"] .hex-card-svg-bg polygon {
+  fill: #18221D;
+  stroke: rgba(200, 117, 77, 0.35);
+}
+
+.hex-card-body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  width: 100%;
+  text-align: left;
+}
+
+.hex-card-num {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: var(--clay);
+  line-height: 1;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+.hex-card-vsep {
+  width: 1px;
+  height: 38px;
+  background: rgba(176, 96, 58, 0.24);
+  margin: 0 16px;
+  flex-shrink: 0;
+  transition: background 0.3s ease;
+}
+
+.hex-card-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.hex-card-heading {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 2px;
+  letter-spacing: -0.01em;
+  transition: color 0.25s ease;
+}
+
+.hex-card-sub {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  color: var(--dim);
+  line-height: 1.32;
+  font-weight: 400;
+  transition: color 0.25s ease;
+}
+
+/* WHOLE HOVER ANIMATION FOR CARDS (User specified) */
+.ritual-hex-card:hover {
+  transform: translateY(-5px);
+}
+
+.ritual-hex-card:hover .hex-card-svg-bg {
+  filter: drop-shadow(0 12px 24px rgba(176, 96, 58, 0.24));
+}
+
+.ritual-hex-card:hover .hex-card-svg-bg polygon {
+  fill: #FFFFFF;
+  stroke: var(--clay);
+  stroke-width: 1.8px;
+}
+
+[data-theme="dark"] .ritual-hex-card:hover .hex-card-svg-bg polygon {
+  fill: #1E2D25;
+  stroke: var(--clay);
+}
+
+.ritual-hex-card:hover .hex-card-num {
+  transform: scale(1.1);
+  color: var(--clay-d);
+  filter: drop-shadow(0 2px 8px rgba(176, 96, 58, 0.3));
+}
+
+.ritual-hex-card:hover .hex-card-vsep {
+  background: var(--clay);
+}
+
+.ritual-hex-card:hover .hex-card-heading {
+  color: var(--clay);
+}
+
+.ritual-hex-card:hover .hex-card-sub {
+  color: var(--ink);
+}
+
+.ritual-hex-card:active {
+  transform: translateY(-2px) scale(0.99);
+}
+
+/* 6. Lower Today's Question Headline */
+.ritual-question-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin-bottom: 24px;
+}
+
+.question-accent-italic {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--clay);
+}
+
+/* 7. Input and Button Form */
+.ritual-prompt-form {
+  width: 100%;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5;
+}
+
+.ritual-input-box {
+  width: 100%;
+}
+
+/* WHOLE ANIMATION FOR INPUT PILL */
+.ritual-pill-input {
+  width: 100%;
+  height: 56px;
+  background: #FFFDF9;
+  border: 1.5px solid rgba(176, 96, 58, 0.28);
+  border-radius: 9999px;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--ink);
+  text-align: center;
+  padding: 0 28px;
+  outline: none;
+  box-shadow: 0 4px 14px rgba(176, 96, 58, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="dark"] .ritual-pill-input {
+  background: #18221D;
+  border-color: rgba(200, 117, 77, 0.35);
+  color: #FAF7F2;
+}
+
+.ritual-pill-input::placeholder {
+  color: rgba(46, 74, 63, 0.52);
+  transition: color 0.25s ease;
+}
+
+[data-theme="dark"] .ritual-pill-input::placeholder {
+  color: rgba(250, 247, 242, 0.45);
+}
+
+.ritual-pill-input:hover {
+  border-color: var(--clay);
+  box-shadow: 0 6px 20px rgba(176, 96, 58, 0.16);
+  transform: translateY(-2px);
+}
+
+.ritual-pill-input:focus {
+  border-color: var(--clay);
+  background: #FFFFFF;
+  box-shadow: 0 0 0 4px rgba(176, 96, 58, 0.18), 0 10px 24px rgba(176, 96, 58, 0.14);
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .ritual-pill-input:focus {
+  background: #1B2922;
+}
+
+/* WHOLE ANIMATION FOR PRIMARY BUTTON (User specified) */
+.ritual-pill-btn {
+  width: 100%;
+  height: 56px;
+  background: linear-gradient(135deg, #B0603A 0%, #9B4F2B 100%);
+  border: none;
+  border-radius: 9999px;
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(176, 96, 58, 0.32);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.ritual-pill-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.ritual-pill-btn:hover {
+  background: linear-gradient(135deg, #BD6942 0%, #A3542E 100%);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(176, 96, 58, 0.44);
+}
+
+.ritual-pill-btn:hover::before {
+  left: 100%;
+}
+
+.btn-arrow-icon {
+  display: inline-block;
+  font-size: 1.15rem;
+  line-height: 1;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ritual-pill-btn:hover .btn-arrow-icon {
+  transform: translate(3px, -3px) scale(1.15);
+}
+
+.ritual-pill-btn:active {
+  transform: translateY(-1px) scale(0.985);
+  box-shadow: 0 6px 18px rgba(176, 96, 58, 0.35);
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .ritual-process-strip {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .hex-card-connector {
+    width: 2px;
+    height: 14px;
+    margin: -4px auto;
+  }
+  .ritual-hex-card {
+    max-width: 360px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-ritual-wrapper {
+    padding: 24px 16px 36px;
+  }
+  .ritual-hero-title {
+    font-size: 2.2rem;
+  }
+  .ritual-hero-subtitle {
+    font-size: 1rem;
+  }
+  .ritual-question-title {
+    font-size: 2rem;
+  }
+  .ritual-pill-input,
+  .ritual-pill-btn {
+    height: 52px;
+    font-size: 0.94rem;
+  }
+}
