@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>hAIve Chi — Give it one thing. See what we become.</title>
+  <meta name="description" content="One question a day. One instinct word from you. When the day closes, every word becomes one collective artwork.">
+  <meta name="theme-color" content="#F5F1E8">
+  <link rel="icon" href="./assets/logo-mark.svg" type="image/svg+xml">
+
+  <!-- Typography: Authentic Cormorant Garamond & JetBrains Mono + Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- Calmed, Non-Intrusive Hexagonal Ground Canvas -->
+  <div class="ground" id="groundCanvas" aria-hidden="true"></div>
+
+  <!-- Flush Attached Top Navbar (Zero Gap, Spans Top of Window) -->
+  <header class="site-header" role="banner">
+    <!-- Center Decorative Honeycomb Wireframe Structure -->
+    <!-- Center Bleeding Honeycomb Hive (Coming from Top Edge Outside Screen) -->
+    <svg class="center-hive-ornament header-hive" viewBox="0 0 520 120" preserveAspectRatio="xMidYMin slice" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M 292.9 -19.0 L 292.9 19.0 L 260.0 38.0 L 227.1 19.0 L 227.1 -19.0 L 260.0 -38.0 Z" fill="none" stroke="var(--line-strong)" stroke-width="1.3" opacity="0.58" vector-effect="non-scaling-stroke"/>
+      <path d="M 277.1 -9.9 L 277.1 9.9 L 260.0 19.8 L 242.9 9.9 L 242.9 -9.9 L 260.0 -19.8 Z" fill="none" stroke="var(--hive-stroke, #2E4A3F)" stroke-width="1.0" opacity="0.43" vector-effect="non-scaling-stroke"/>
+      <path d="M 227.1 -19.0 L 227.1 19.0 L 194.2 38.0 L 161.3 19.0 L 161.3 -19.0 L 194.2 -38.0 Z" fill="none" stroke="var(--line-strong)" stroke-width="1.3" opacity="0.48" vector-effect="non-scaling-stroke"/>
+      <path d="M 358.7 -19.0 L 358.7 19.0 L 325.8 38.0 L 292.9 19.0 L 292.9 -19.0 L 325.8 -38.0 Z" fill="none" stroke="var(--line-strong)" stroke-width="1.3" opacity="0.48" vector-effect="non-scaling-stroke"/>
+      <path d="M 161.3 -19.0 L 161.3 19.0 L 128.4 38.0 L 95.5 19.0 L 95.5 -19.0 L 128.4 -38.0 Z" fill="none" stroke="var(--line-strong)" stroke-width="1.3" opacity="0.32" vector-effect="non-scaling-stroke"/>
+      <path d="M 424.5 -19.0 L 424.5 19.0 L 391.6 38.0 L 358.7 19.0 L 358.7 -19.0 L 391.6 -38.0 Z" fill="none" stroke="var(--line-strong)" stroke-width="1.3" opacity="0.32" vector-effect="non-scaling-stroke"/>
+      <path d="M 260.0 38.0 L 260.0 76.0 L 227.1 95.0 L 194.2 76.0 L 194.2 38.0 L 227.1 19.0 Z" fill="none" stroke="var(--line-strong)" stroke-width="1.3" opacity="0.52" vector-effect="non-scaling-stroke"/>
+      <path d="M 244.2 47.1 L 244.2 66.9 L 227.1 76.8 L 210.0 66.9 L 210.0 47.1 L 227.1 37.2 Z" fill="none" stroke="var(--hive-stroke, #2E4A3F)" stroke-width="1.0" opacity="0.39" vector-effect="non-scaling-stroke"/>
+      <path d="M 325.8 38.0 L 325.8 76.0 L 292.9 95.0 L 260.0 76.0 L 260.0 38.0 L 292.9 19.0 Z" fill="none" stroke="var(--line-strong)" stroke-width="1.3" opacity="0.52" vector-effect="non-scaling-stroke"/>
+      <path d="M 194.2 38.0 L 194.2 76.0 L 161.3 95.0 L 128.4 76.0 L 128.4 38.0 L 161.3 19.0 Z" fill="none" stroke="var(--line-strong)" stroke-width="1.3" opacity="0.35" vector-effect="non-scaling-stroke"/>
+      <path d="M 391.6 38.0 L 391.6 76.0 L 358.7 95.0 L 325.8 76.0 L 325.8 38.0 L 358.7 19.0 Z" fill="none" stroke="var(--line-strong)" stroke-width="1.3" opacity="0.35" vector-effect="non-scaling-stroke"/>
+      <path d="M 292.9 95.0 L 292.9 133.0 L 260.0 152.0 L 227.1 133.0 L 227.1 95.0 L 260.0 76.0 Z" fill="none" stroke="var(--line-strong)" stroke-width="1.3" opacity="0.42" vector-effect="non-scaling-stroke"/>
+    </svg>
+    <div class="header-inner">
+      <a href="#" class="brand-link" id="brandHomeBtn" aria-label="hAIve Chi Home">
+        <img class="brand-mark light-only" src="./assets/logo-mark.svg" width="42" height="48" alt="hAIve Chi Hexagonal Logo">
+        <img class="brand-mark dark-only" src="./assets/logo-mark-dark.svg" width="42" height="48" alt="hAIve Chi Hexagonal Logo (Dark Mode)">
+        <div class="brand-copy">
+          <span class="brand-title">h<i>AI</i>ve Chi</span>
+          <span class="brand-tagline">
+            Question<span class="mark-q">?</span> &nbsp;&middot;&nbsp; Word<span class="mark-dot">.</span> &nbsp;&middot;&nbsp; Reveal<span class="mark-ex">!</span>
+          </span>
+        </div>
+      </a>
+
+      <div class="header-right">
+        <nav class="nav-links" role="navigation" aria-label="Main Navigation">
+          <button class="nav-btn active" id="tabToday" type="button" data-view="view-today">
+            <span class="dot-indicator"></span>
+            Today
+          </button>
+          <button class="nav-btn" id="tabHive" type="button" data-view="view-hive">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+            </svg>
+            The Hive
+          </button>
+          <button class="nav-btn" id="tabLab" type="button" data-view="view-lab">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 2v7.31L4.5 18.5A2 2 0 0 0 6.2 21.5h11.6a2 2 0 0 0 1.7-3L14 9.31V2"></path>
+            </svg>
+            The Lab
+          </button>
+          <button class="nav-btn" id="tabAbout" type="button" data-view="view-about">Why the hAIve?</button>
+          <button class="nav-btn" id="tabDemo" type="button" data-view="view-demo">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            Sample Month (Demo)
+          </button>
+        </nav>
+
+        <!-- Global Light / Dark Theme Switcher -->
+        <button class="theme-toggle-btn" id="themeToggleBtn" type="button" title="Toggle Theme" aria-label="Toggle Light and Dark Mode">
+          <svg id="themeIconSun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="themeIconMoon" class="hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="app-container">
+
+    <main id="mainContent">
+
+      <!-- ========================================================
+           VIEW 1: TODAY (Redesigned Homepage Hero & Input UI)
+           ======================================================== -->
+      <section id="view-today" class="stage fade-in">
+        <div class="hero-prompt-wrapper">
+        <span class="watermark-glyph" aria-hidden="true">?</span>
+
+        <p class="eyebrow" id="todayEyebrow">WEDNESDAY &middot; WORD DAY</p>
+        
+        <h1 class="prompt-headline" id="todayPromptQuestion">One word for home.</h1>
+
+        <!-- Redesigned Main Input with Balanced Proportions -->
+        <form class="prompt-form" id="wordPromptForm" autocomplete="off">
+          <div class="field-wrapper">
+            <input 
+              id="wordInputField" 
+              class="prompt-input" 
+              type="text" 
+              placeholder="One word. First instinct." 
+              maxlength="30"
+              aria-label="Your single word answer"
+              required
+              autofocus
+            >
+          </div>
+
+          <div class="input-hint">
+            <span>Blind submission &middot; No peeking</span>
+            <span id="charCountNotice">Instant contribution</span>
+          </div>
+
+          <button class="btn-primary" id="submitWordBtn" type="submit">
+            Give it one thing
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+          
+          <p class="form-error" id="formErrorMsg"></p>
+
+          <div class="prompt-whisper-notes">
+            <p class="whisper-primary">No explanation. No peeking. Just yours.</p>
+            <p class="whisper-secondary">When the day closes, every word becomes one thing. You’ll see where yours landed.</p>
+          </div>
+        </form>
+
+        <!-- Quick Access Hub to Your Haive and Monthly Summary -->
+        <div class="hero-quick-portals">
+          <div class="portal-badge">Direct Access &middot; Archives &amp; Synthesis</div>
+          <div class="portal-cards">
+            <button class="portal-card" id="quickPortalHive" type="button" aria-label="Go to Your Haive">
+              <div class="portal-card-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+                </svg>
+              </div>
+              <div class="portal-card-text">
+                <span class="portal-title">Your Haive &rarr;</span>
+                <span class="portal-sub">Past prompts &amp; your instinct words</span>
+              </div>
+            </button>
+
+            <button class="portal-card" id="quickPortalMonthly" type="button" aria-label="Go to Your Monthly Summary">
+              <div class="portal-card-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </div>
+              <div class="portal-card-text">
+                <span class="portal-title">Monthly Summary &rarr;</span>
+                <span class="portal-sub">Full 31-day visual synthesis</span>
+              </div>
+            </button>
+          </div>
+        </div>
+        </div>
+
+        <!-- Interactive 24-Hour Ritual Timeline (Clearly Shows What hAIve Chi Does & Is For) -->
+        <div class="manifesto-card timeline-explainer-section">
+          
+          <div class="timeline-intro-head">
+            <div class="timeline-mini-badge">
+              <span class="pulse-beacon"></span>
+              24-Hour Collective Cycle
+            </div>
+            <h2 class="timeline-main-title">
+              How h<i>AI</i>ve Chi Works: From Instinct to Artwork
+            </h2>
+            
+          </div>
+
+          <!-- Connected Horizontal Timeline Track -->
+          <div class="ritual-timeline">
+            <!-- Continuous Connecting Line -->
+            <div class="timeline-connector-bar">
+              <div class="connector-progress"></div>
+            </div>
+
+            <!-- Step 1 Milestone -->
+            <div class="timeline-milestone step-one">
+              <div class="milestone-node">
+                <span class="node-number">01</span>
+                <span class="node-symbol">?</span>
+              </div>
+              <div class="milestone-time">06:00 UTC &middot; Sunrise</div>
+              <h3 class="milestone-heading">The Universal Question</h3>
+              <p class="milestone-body">One prompt for everyone, everywhere.</p>
+            </div>
+
+            <!-- Step 2 Milestone -->
+            <div class="timeline-milestone step-two">
+              <div class="milestone-node">
+                <span class="node-number">02</span>
+                <span class="node-symbol">.</span>
+              </div>
+              <div class="milestone-time">Throughout Today</div>
+              <h3 class="milestone-heading">Your Blind Instinct</h3>
+              <p class="milestone-body">One word. 100% blind &amp; private.</p>
+            </div>
+
+            <!-- Step 3 Milestone -->
+            <div class="timeline-milestone step-three">
+              <div class="milestone-node">
+                <span class="node-number">03</span>
+                <span class="node-symbol">!</span>
+              </div>
+              <div class="milestone-time">00:00 UTC &middot; Midnight</div>
+              <h3 class="milestone-heading">The Collective Reveal</h3>
+              <p class="milestone-body">All words become daily collective art.</p>
+            </div>
+          </div>
+
+          
+        </div>
+
+        <div class="reminders-panel solid-card">
+          <div class="rem-title-row">
+            <div class="rem-icon-badge">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="reminders-title">Daily Reveal Reminders</h3>
+              <p class="reminders-subtitle">Get a quiet ping when today’s collective artwork drops at midnight.</p>
+            </div>
+          </div>
+
+          <form class="rem-form" id="reminderForm" onsubmit="event.preventDefault(); window.handleReminderSubmit();">
+            <input class="rem-input" id="remEmail" type="email" placeholder="you@somewhere.com" aria-label="Email address for reminder">
+            <input class="rem-input" id="remPhone" type="tel" placeholder="Phone (optional)" aria-label="Phone number for reminder">
+            <button class="rem-submit-btn" type="submit">
+              <span>Remind Me</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </form>
+
+          <div class="rem-footer-row">
+            <label class="rem-device-row">
+              <input type="checkbox" id="deviceNotificationCheck">
+              <span>Receive notifications on this device</span>
+            </label>
+            <span class="rem-privacy-note">Zero spam &middot; One ping per day &middot; Unsubscribe anytime</span>
+          </div>
+
+          <div class="rem-feedback" id="remFeedbackMsg"></div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           VIEW 2: WAITING COUNTDOWN STATE
+           ======================================================== -->
+      <section id="view-waiting" class="stage hidden fade-in">
+        <div class="waiting-box">
+          <p class="eyebrow">you gave</p>
+          <h2 class="given-word-display" id="submittedWordEcho">&ldquo;Sanctuary&rdquo;</h2>
+          
+          <div style="width: 80px; height: 1px; background: var(--line-strong); margin: 24px auto;"></div>
+
+          <p class="whisper-primary" style="font-size:22px;">When the day closes, everyone sees what we became &mdash; together.</p>
+          
+          <div class="countdown-clock" id="countdownClock">07:42:19</div>
+          <p class="eyebrow" style="margin-top: 10px;">until today's reveal</p>
+
+          <div class="waiting-actions-container">
+            <p class="eyebrow" style="color: var(--clay);">while you wait &mdash;</p>
+            <div class="waiting-btns-row">
+              <button class="btn-waiting-primary" id="waitSeeHiveBtn" type="button">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+                </svg>
+                <span>Explore Your Haive &rarr;</span>
+              </button>
+              <button class="btn-waiting-secondary" id="waitSeeMonthlyBtn" type="button">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span>Monthly Summary &rarr;</span>
+              </button>
+            </div>
+            <button class="btn-ghost" id="resetWordBtn" type="button">Change word / Shared computer?</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           VIEW 3: THE HIVE (Redesigned with Clear Active, Revealed & Coming Soon Separation)
+           ======================================================== -->
+      <section id="view-hive" class="stage top-aligned hidden fade-in">
+        <div class="hive-header-row">
+          <div>
+            <p class="eyebrow" style="justify-content: flex-start;">the collective archive &middot; your daily contributions</p>
+            <h1 style="font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 500; color: var(--green); margin-top: 6px;">
+              Your Haive
+            </h1>
+            <p style="color: var(--dim); font-size: 14.5px; margin-top: 4px;">
+              Explore daily collective metamorphoses, semantic clusters, and your submitted instinct words.
+            </p>
+          </div>
+
+          <div class="archive-filters">
+            <button class="filter-chip active" data-filter="all">All Days</button>
+            <button class="filter-chip" data-filter="today">Active Today</button>
+            <button class="filter-chip" data-filter="revealed">Revealed (Available)</button>
+            <button class="filter-chip" data-filter="upcoming">Coming Soon</button>
+            <button class="filter-chip" data-filter="mine">Your Chi</button>
+            <button class="filter-chip view-switch-chip" id="hiveToMonthlyBtn" type="button" title="Switch to Monthly Summary Calendar">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>Monthly Summary &rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Clear Grouped Archive Container (Per Section 3 of Audit PDF) -->
+        <div class="archive-groups-wrapper" id="hiveGroupsWrapper">
+          <!-- Populated by JavaScript into distinct groups:
+               1. Active Today (Available Live)
+               2. Revealed Archives (Available to Explore)
+               3. Scheduled Hives (Coming Soon)
+          -->
+        </div>
+      </section>
+
+      <!-- ========================================================
+           VIEW 3B: THE LAB (Machine Consensus & 11 Labs Multi-Lingual Ritual)
+           ======================================================== -->
+      <section id="view-lab" class="stage top-aligned hidden fade-in">
+        <div class="lab-container">
+          
+          <!-- Editorial Hero Header Area -->
+          <div class="lab-hero">
+            <h1 class="lab-hero-title">The Lab</h1>
+            
+            <p class="lab-hero-subtitle">
+              The same question, put to a crowd of AIs every night.<br>
+              <span class="lab-hero-subtitle-dim">Each day reveals here once the people’s reveal is out.</span>
+            </p>
+
+            <!-- Reference-Inspired 4-Step Chevron Process Ribbon -->
+            <div class="lab-chevron-strip">
+              <!-- Step 01 -->
+              <div class="chevron-step step-1">
+                <div class="chevron-top">
+                  <span class="chevron-num">01 &mdash;</span>
+                  <span class="chevron-icon">✦</span>
+                </div>
+                <h3 class="chevron-title">Eleven Global Labs</h3>
+                <p class="chevron-desc">
+                  The day&rsquo;s question is put to eleven AI models in many languages, over 6 nightly rounds.
+                </p>
+                <div class="chevron-line-divider" aria-hidden="true">
+                  <svg viewBox="0 0 20 100" preserveAspectRatio="none">
+                    <path d="M1,0 L18,50 L1,100" fill="none" stroke="currentColor" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Step 02 -->
+              <div class="chevron-step step-2">
+                <div class="chevron-top">
+                  <span class="chevron-num">02 &mdash;</span>
+                  <span class="chevron-icon">★</span>
+                </div>
+                <h3 class="chevron-title">One Machine Reveal</h3>
+                <p class="chevron-desc">
+                  Hundreds of machine answers synthesize into one consensus. <em>Strictly isolated from the human hive.</em>
+                </p>
+                <div class="chevron-line-divider" aria-hidden="true">
+                  <svg viewBox="0 0 20 100" preserveAspectRatio="none">
+                    <path d="M1,0 L18,50 L1,100" fill="none" stroke="currentColor" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Step 03 -->
+              <div class="chevron-step step-3">
+                <div class="chevron-top">
+                  <span class="chevron-num">03 &mdash;</span>
+                  <span class="chevron-icon">⬡</span>
+                </div>
+                <h3 class="chevron-title">Its Own Month &amp; Art</h3>
+                <p class="chevron-desc">
+                  Every AI earns its own month: a 31-day honeycomb, its daily word, and its own generative picture.
+                </p>
+                <div class="chevron-line-divider" aria-hidden="true">
+                  <svg viewBox="0 0 20 100" preserveAspectRatio="none">
+                    <path d="M1,0 L18,50 L1,100" fill="none" stroke="currentColor" stroke-width="1.6" vector-effect="non-scaling-stroke"/>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Step 04 -->
+              <div class="chevron-step step-4">
+                <div class="chevron-top">
+                  <span class="chevron-num">04 &mdash;</span>
+                  <span class="chevron-icon">↗</span>
+                </div>
+                <h3 class="chevron-title">The People&rsquo;s Mirror</h3>
+                <p class="chevron-desc">
+                  Machine days reveal here only after the people&rsquo;s reveal is published&mdash;preserving unprimed truth.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Component 1: Each AI's Month (Model Gallery with Full Month Inspect) -->
+          <div class="lab-section ai-months-section">
+            <div class="lab-section-header">
+              <div class="lab-section-title-wrap">
+                <h2 class="lab-section-title">Each AI's month</h2>
+                <span class="lab-pill-tag">its own picture, like yours</span>
+              </div>
+              <span class="lab-action-hint">TAP ONE TO SEE ITS WHOLE MONTH &rarr;</span>
+            </div>
+
+            <!-- Month Selector Pills with Counts -->
+            <div class="lab-months-bar">
+              <button class="lab-month-pill" data-ai-month="November 2026" type="button">November 2026 <span class="pill-count-num">11</span></button>
+              <button class="lab-month-pill active" data-ai-month="October 2026" type="button">October 2026 <span class="pill-count-num">31</span></button>
+              <button class="lab-month-pill" data-ai-month="September 2026" type="button">September 2026 <span class="pill-count-num">16</span></button>
+            </div>
+
+            <!-- 11 AI Model Cards Grid -->
+            <div class="ai-models-grid" id="aiModelsGrid">
+              <!-- Injected by JavaScript -->
+            </div>
+
+            <!-- Inline AI Month Showcase Drawer (Poster + 31-Day Ledger + Artwork) -->
+            <div id="aiMonthShowcase" class="ai-month-showcase hidden" aria-live="polite">
+              <!-- Injected dynamically by renderAiMonthShowcase() in app.js -->
+            </div>
+          </div>
+
+          <!-- Component 2: What the Machines Said (Grouped by Month) -->
+          <div class="lab-section machines-feed-section">
+            <div class="lab-section-header">
+              <div class="lab-section-title-wrap">
+                <h2 class="lab-section-title">What the machines said</h2>
+                <span class="lab-count-badge" id="labDaysCountBadge">58 days</span>
+              </div>
+              <span class="lab-subtitle-note">The people's reveal sits under each one</span>
+            </div>
+
+            <!-- Sticky Month Quick-Jump Bar -->
+            <div class="lab-sticky-jump-container">
+              <div class="lab-jump-bar">
+                <span class="lab-jump-label">Jump:</span>
+                <button class="lab-jump-pill active" data-jump-target="month-november-2026" type="button">November 2026 <span class="jump-count">11</span></button>
+                <button class="lab-jump-pill" data-jump-target="month-october-2026" type="button">October 2026 <span class="jump-count">31</span></button>
+                <button class="lab-jump-pill" data-jump-target="month-september-2026" type="button">September 2026 <span class="jump-count">16</span></button>
+              </div>
+            </div>
+
+            <!-- Dynamic Days Feed Container (Grouped by Month: November, October, September) -->
+            <div class="lab-days-feed" id="labDaysFeed">
+              <!-- Populated by JavaScript -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================================
+           VIEW 4: WHY THE hAIve? (Visual Concept & About View)
+           ======================================================== -->
+      <section id="view-about" class="stage top-aligned hidden fade-in">
+        <div class="about-container">
+          
+          <!-- Editorial Hero Header -->
+          <div class="about-hero">
+            <div class="about-eyebrow-pill">
+              <span class="about-pill-dot"></span>
+              THE COLLECTIVE RITUAL &middot; PHILOSOPHY &amp; DESIGN
+            </div>
+            <h1 class="about-hero-title">
+              Why the h<span class="ai-brand-accent">AI</span>ve?
+            </h1>
+            
+            <!-- Elevated Philosophy Manifesto Plaque -->
+            <div class="about-manifesto-plaque">
+              <div class="manifesto-inner">
+                <span class="manifesto-decor-quote">&ldquo;</span>
+                <p class="about-manifesto-text">
+                  Everyone in the world receives the exact same prompt on the same day. One word. No explanation. At midnight, all minds converge into one.
+                </p>
+                <div class="manifesto-rule-mark"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3-Step Interactive Ritual Sequence -->
+          <div class="steps-grid">
+            <div class="step-card">
+              <div class="step-card-top">
+                <span class="step-number">01</span>
+                <div class="step-glyph-pill glyph-q">?</div>
+              </div>
+              <div class="step-time-tag">06:00 UTC &middot; Universal Launch</div>
+              <h3 class="step-title">The Question<span class="mark-q">?</span></h3>
+              <p class="step-desc">
+                A single question is released universally. Every participant receives the prompt simultaneously with zero contextual cues or priming.
+              </p>
+              <div class="step-card-footer">
+                <span class="step-pill-tag">1 Universal Prompt</span>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-card-top">
+                <span class="step-number">02</span>
+                <div class="step-glyph-pill glyph-dot">&middot;</div>
+              </div>
+              <div class="step-time-tag">Throughout Today &middot; Private Intuition</div>
+              <h3 class="step-title">The Word<span class="mark-dot">.</span></h3>
+              <p class="step-desc">
+                You contribute your immediate, unfiltered first instinct. One single word. You cannot see anyone else's entry, preserving raw human intuition.
+              </p>
+              <div class="step-card-footer">
+                <span class="step-pill-tag">100% Blind Submission</span>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-card-top">
+                <span class="step-number">03</span>
+                <div class="step-glyph-pill glyph-ex">!</div>
+              </div>
+              <div class="step-time-tag">00:00 UTC &middot; Midnight Convergence</div>
+              <h3 class="step-title">The Reveal<span class="mark-ex">!</span></h3>
+              <p class="step-desc">
+                When the day closes, the collective corpus is synthesized into visual artwork, linguistic semantic clusters, and you discover exactly where your mind landed.
+              </p>
+              <div class="step-card-footer">
+                <span class="step-pill-tag">Collective Art &amp; Clusters</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Why One Word & Total Privacy Principles -->
+          <div class="about-principles">
+            <div class="principle-card">
+              <div class="principle-card-head">
+                <div class="principle-icon-badge">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="principle-title">Zero Accounts &amp; Total Privacy</h4>
+                  <span class="principle-subtitle">Decentralized &middot; Client-Side Sovereign</span>
+                </div>
+              </div>
+              <p class="principle-body">
+                No signups, passwords, tracking cookies, or profiling algorithms. Your streak and submissions live securely in your device's browser. We never attach personal identities to words.
+              </p>
+              <div class="principle-tags">
+                <span class="ptag">Zero Cookies</span>
+                <span class="ptag">Device-Local</span>
+                <span class="ptag">Anonymous</span>
+              </div>
+            </div>
+
+            <div class="principle-card">
+              <div class="principle-card-head">
+                <div class="principle-icon-badge">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="8" y1="12" x2="16" y2="12"></line>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="principle-title">Why A Single Word?</h4>
+                  <span class="principle-subtitle">Raw Instinct &middot; Unperformed Truth</span>
+                </div>
+              </div>
+              <p class="principle-body">
+                Longer answers are performed for audiences and social validation. A single word has nowhere to hide &mdash; it preserves the purest, unfiltered glimpse of human emotion and instinct.
+              </p>
+              <div class="principle-tags">
+                <span class="ptag">Unprimed</span>
+                <span class="ptag">Uncensored</span>
+                <span class="ptag">Pure Emotion</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Elevated Action Callout -->
+          <div class="about-cta-section">
+            <span class="cta-whisper-eyebrow">READY TO BECOME PART OF TODAY&rsquo;S CONVERGENCE?</span>
+            <button class="btn-primary" id="aboutBackToPromptBtn" type="button">
+              <span>Participate in Today's Prompt</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+            <p class="about-cta-subtext">Free forever &middot; Universal prompt &middot; Midnight collective reveal</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================================
+           VIEW 5: DEMO PAGE (Structured Sample Month Grid & Interactions per Section 4 of Audit)
+           ======================================================== -->
+      <section id="view-demo" class="stage top-aligned hidden fade-in">
+        <div class="demo-wrapper">
+          <div class="demo-header-row">
+            <div>
+              <p class="eyebrow" style="justify-content: flex-start;">collective monthly synthesis &middot; 31 daily metamorphoses</p>
+              <h1 style="font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 500; color: var(--green); margin-top: 6px;">
+                Your Monthly Summary
+              </h1>
+              <p style="color: var(--dim); font-size: 14.5px; margin-top: 4px; max-width: 760px;">
+                A complete month of daily instinct words converged into collective art. Explore any day to inspect the synthesized reveal, word cloud, and where participants landed.
+              </p>
+            </div>
+
+            <div class="demo-summary-badge">
+              <span class="stat-num">31</span>
+              <span class="stat-lbl">Days Completed</span>
+            </div>
+          </div>
+
+          <!-- Month Stats Strip -->
+          <div class="demo-stats-strip">
+            <div class="stat-item">
+              <span class="stat-val">482,900+</span>
+              <span class="stat-tag">Words Collected</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-val">31 Artworks</span>
+              <span class="stat-tag">Autonomous Synthesis</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-val">100% Blind</span>
+              <span class="stat-tag">Unprimed Intuition</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-val">Zero Accounts</span>
+              <span class="stat-tag">Client-side Privacy</span>
+            </div>
+          </div>
+
+          <!-- Balanced, Structured Calendar Grid (Section 4 of Audit) -->
+          <div class="demo-grid-toolbar">
+            <div class="week-filter-group">
+              <button class="filter-chip active" data-week="all">All 31 Days</button>
+              <button class="filter-chip" data-week="1">Week 1 (Days 1–7)</button>
+              <button class="filter-chip" data-week="2">Week 2 (Days 8–14)</button>
+              <button class="filter-chip" data-week="3">Week 3 (Days 15–21)</button>
+              <button class="filter-chip" data-week="4">Week 4+ (Days 22–31)</button>
+            </div>
+            <span class="demo-click-hint">Click any day to open the reveal modal &rarr;</span>
+          </div>
+
+          <!-- Staggered Animated Grid Container -->
+          <div class="demo-calendar-grid" id="demoCalendarGrid">
+            <!-- Populated with 31 days by JavaScript -->
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div> <!-- /.app-container -->
+
+  <!-- ========================================================
+       DAY REVEAL MODAL / DETAIL DIALOG (Comprehensive Modal for The Hive & Demo Page)
+         ======================================================== -->
+    <div class="modal-backdrop hidden" id="dayDetailModal" role="dialog" aria-modal="true" aria-labelledby="dayModalPrompt">
+      <div class="modal-card day-detail-card">
+        <div class="modal-header">
+          <div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="day-code-badge" id="dayModalBadge" style="font-size:10px; padding:3px 10px;">Day 01</span>
+              <span style="font-family:var(--font-mono); font-size:11px; color:var(--dim);" id="dayModalDate">August 1</span>
+            </div>
+            <h2 id="dayModalPrompt" style="font-family: var(--font-serif); font-size: clamp(22px, 3.5vw, 32px); color: var(--green); margin-top: 4px;">
+              What lingers after the storm?
+            </h2>
+          </div>
+          <button class="modal-close-btn" id="dayModalCloseBtn" type="button" aria-label="Close day detail">&times;</button>
+        </div>
+
+        <div class="day-modal-body">
+          <!-- Left Column: Synthesized Artwork -->
+          <div class="day-art-pane">
+            <div class="day-art-container" id="dayModalArtContainer">
+              <!-- SVG Artwork injected -->
+            </div>
+            <div class="day-art-caption">
+              <span class="caption-label">COLLECTIVE SYNTHESIS</span>
+              <p class="caption-desc" id="dayModalArtDesc">
+                Mineral sediment, petrichor mist, and damp cedar wood converge into geometric resonance.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Column: Semantic Clusters & User Word -->
+          <div class="day-meta-pane">
+            <div>
+              <span class="eyebrow" style="justify-content: flex-start;">semantic cluster map</span>
+              <h3 style="font-family: var(--font-serif); font-size: 20px; color: var(--green); margin-top: 2px;">
+                How words gathered
+              </h3>
+            </div>
+
+            <!-- Find My Input Feature (Direct from original demo concept) -->
+            <div class="find-my-input-box" id="dayModalFindInputBox">
+              <span class="find-tag">Find My Input</span>
+              <p style="font-size:13px; color:var(--ink); margin-top:2px;">
+                Your word today was <b style="color:var(--clay);" id="dayModalUserWord">"Sanctuary"</b> &mdash; glowing cell in the collective cluster.
+              </p>
+            </div>
+
+            <div class="cluster-pills" id="dayModalClusterPills">
+              <!-- Populated with cluster pills -->
+            </div>
+
+            <div class="day-stats-box">
+              <div class="day-stat-col">
+                <span class="stat-k">Total Words</span>
+                <span class="stat-v" id="dayModalSubmissions">18,492</span>
+              </div>
+              <div class="day-stat-col">
+                <span class="stat-k">Dominant Theme</span>
+                <span class="stat-v" id="dayModalDominant">Petrichor (28%)</span>
+              </div>
+              <div class="day-stat-col">
+                <span class="stat-k">Unique Lexicon</span>
+                <span class="stat-v" id="dayModalUnique">3,140</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Day Modal Navigation Controls -->
+        <div class="day-modal-nav">
+          <button class="btn-ghost" id="dayModalPrevBtn" type="button">&larr; Previous Day</button>
+          <button class="btn-ghost" id="dayModalNextBtn" type="button">Next Day &rarr;</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         THE LAB: AI MODEL MONTH DETAIL MODAL
+         ======================================================== -->
+    <div class="modal-backdrop hidden" id="aiModelModal" role="dialog" aria-modal="true" aria-labelledby="aiModalName">
+      <div class="modal-card ai-model-modal-card">
+        <div class="modal-header">
+          <div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="day-code-badge" id="aiModalStepBadge" style="font-size:10px; padding:3px 10px;">in step 3×</span>
+              <span class="day-code-badge" id="aiModalOriginBadge" style="font-size:10px; padding:3px 10px; background:var(--clay-subtle); color:var(--clay); border:1px solid var(--clay-glow);">US &middot; OpenAI</span>
+              <span style="font-family:var(--font-mono); font-size:11px; color:var(--dim);" id="aiModalDaysCount">28 Days Active</span>
+            </div>
+            <h2 id="aiModalName" style="font-family: var(--font-serif); font-size: clamp(24px, 4vw, 36px); color: var(--green); margin-top: 4px;">
+              OpenAI
+            </h2>
+          </div>
+          <button class="modal-close-btn" id="aiModalCloseBtn" type="button" aria-label="Close AI model modal">&times;</button>
+        </div>
+
+        <div class="day-modal-body ai-modal-body">
+          <!-- Left Column: AI Model Artwork -->
+          <div class="day-art-pane">
+            <div class="ai-modal-art-box" id="aiModalArtContainer">
+              <img id="aiModalImg" src="" alt="AI Monthly Artwork" style="width:100%; border-radius:12px; display:block;">
+            </div>
+            <div class="day-art-caption">
+              <span class="caption-label">AUTONOMOUS MONTHLY SYNTHESIS</span>
+              <p class="caption-desc" id="aiModalCaption">
+                Its own picture when the month ends, compiled from 31 consecutive daily instinct words.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Column: Lab Profile & Traits -->
+          <div class="day-meta-pane">
+            <div>
+              <span class="eyebrow" style="justify-content: flex-start;">machine persona &amp; methodology</span>
+              <h3 style="font-family: var(--font-serif); font-size: 20px; color: var(--green); margin-top: 2px;" id="aiModalSubTitle">
+                Laboratory Profile
+              </h3>
+            </div>
+
+            <div class="ai-profile-card">
+              <div class="ai-profile-row">
+                <span class="profile-key">Architecture:</span>
+                <span class="profile-val" id="aiModalArch">GPT-4o / o1-preview</span>
+              </div>
+              <div class="ai-profile-row">
+                <span class="profile-key">Nightly Protocol:</span>
+                <span class="profile-val" id="aiModalRounds">6 rounds nightly &middot; Multi-language translations</span>
+              </div>
+              <div class="ai-profile-row">
+                <span class="profile-key">Tested Languages:</span>
+                <span class="profile-val" id="aiModalLangs">English, Chinese, Spanish, French, Japanese</span>
+              </div>
+              <div class="ai-profile-row">
+                <span class="profile-key">Signature Trait:</span>
+                <span class="profile-val" id="aiModalQuirk">High poetic cohesion; consistently anchors on spatial & domestic metaphors.</span>
+              </div>
+            </div>
+
+            <!-- AI 31-Day Honeycomb Calendar Preview -->
+            <div>
+              <span class="eyebrow" style="justify-content: flex-start; margin-top: 14px;">31-Day Machine Honeycomb Trajectory</span>
+              <div class="ai-honeycomb-strip" id="aiModalHoneycombStrip">
+                <!-- Injected days -->
+              </div>
+            </div>
+
+            <div class="day-stats-box">
+              <div class="day-stat-col">
+                <span class="stat-k">Consensus Rate</span>
+                <span class="stat-v" id="aiModalConsensus">94.2%</span>
+              </div>
+              <div class="day-stat-col">
+                <span class="stat-k">Dominant Lexicon</span>
+                <span class="stat-v" id="aiModalDominant">Friday / Home</span>
+              </div>
+              <div class="day-stat-col">
+                <span class="stat-k">Human Hive Blend</span>
+                <span class="stat-v" style="color:var(--clay);">0% (Isolated)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         THE LAB: DAY DEEP-DIVE (MACHINE VS HUMAN COMPARISON MODAL)
+         ======================================================== -->
+    <div class="modal-backdrop hidden" id="labDayDetailModal" role="dialog" aria-modal="true" aria-labelledby="labDayModalPrompt">
+      <div class="modal-card lab-day-detail-card">
+        <div class="modal-header">
+          <div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="day-code-badge" id="labDayModalBadge" style="font-size:10px; padding:3px 10px;">Day 80</span>
+              <span style="font-family:var(--font-mono); font-size:11px; color:var(--dim);" id="labDayModalDate">Sun, Nov 15</span>
+              <span class="signal-tag" id="labDayModalSignalTag">Strong Consensus</span>
+            </div>
+            <h2 id="labDayModalPrompt" style="font-family: var(--font-serif); font-size: clamp(22px, 3.5vw, 32px); color: var(--green); margin-top: 4px;">
+              What does Friday sound like?
+            </h2>
+          </div>
+          <button class="modal-close-btn" id="labDayModalCloseBtn" type="button" aria-label="Close day comparison">&times;</button>
+        </div>
+
+        <div class="day-modal-body">
+          <!-- Left Column: Editorial Synthesis & Proportional Bars -->
+          <div class="day-art-pane" style="flex:1.2;">
+            <h3 id="labDayModalHeadline" style="font-family:var(--font-serif); font-size:22px; color:var(--clay); margin-bottom:8px;">
+              Friday Took 279 Of 525 Sounds
+            </h3>
+            <p id="labDayModalNarrative" style="font-size:14px; line-height:1.6; color:var(--ink); margin-bottom:18px;">
+              Narrative text...
+            </p>
+
+            <span class="eyebrow" style="justify-content:flex-start;">Proportional Machine Distribution</span>
+            <div class="modal-freq-distribution" id="labDayModalFreqBars">
+              <!-- Rendered with visual filled bars & counts -->
+            </div>
+
+            <div style="margin-top:16px; font-family:var(--font-mono); font-size:11px; color:var(--dim);" id="labDayModalMetaFooter">
+              525 AI answers &middot; 11 labs &middot; 6 rounds
+            </div>
+          </div>
+
+          <!-- Right Column: Comparative Side - The People's Reveal -->
+          <div class="day-meta-pane" style="flex:0.9;">
+            <div>
+              <span class="eyebrow" style="justify-content: flex-start;">human intuition contrast</span>
+              <h3 style="font-family: var(--font-serif); font-size: 20px; color: var(--green); margin-top: 2px;">
+                The People's Reveal
+              </h3>
+            </div>
+
+            <div class="people-contrast-card" id="labDayModalPeopleCard">
+              <div class="people-badge-row">
+                <span class="people-icon-dot"></span>
+                <span id="labDayModalPeopleSubtitle" style="font-family:var(--font-mono); font-size:11.5px; color:var(--green);">The people &middot; 2 answers</span>
+              </div>
+              <h4 id="labDayModalPeopleTitle" style="font-family:var(--font-serif); font-size:19px; color:var(--green); margin:8px 0 12px;">
+                Two Inputs, No Shared Sound
+              </h4>
+              <p style="font-size:13px; color:var(--dim); line-height:1.5;">
+                Real humans answer the same prompt blindly without seeing others. Compare machine convergence against raw human diversity.
+              </p>
+              
+              <button class="btn-primary" id="labDayModalOpenPeopleBtn" type="button" style="height:44px; font-size:14px; margin-top:16px; width:100%;">
+                <span>Open Full Human Reveal</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+
+            <div class="lab-divergence-insight-box">
+              <span class="divergence-label">MACHINE vs HUMAN SIGNAL</span>
+              <p id="labDayModalDivergenceNote" style="font-size:12.5px; color:var(--ink); margin-top:4px; line-height:1.5;">
+                Analyzing the cognitive gap between machine consensus and human unprimed intuition.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         REWORKED IDEAS & BUGS WIDGET (Warm Earthy Theme per Audit)
+         ======================================================== -->
+    <button class="feedback-launcher" id="feedbackLauncherBtn" type="button" aria-label="Open Ideas and Bugs Feedback">
+      <span class="indicator-dot"></span>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2a5 5 0 0 1 5 5v3a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5z"></path>
+        <path d="M19 11v2a7 7 0 0 1-14 0v-2"></path>
+        <line x1="12" y1="18" x2="12" y2="22"></line>
+      </svg>
+      Ideas &amp; Bugs
+    </button>
+
+    <!-- Native Feedback Modal -->
+    <div class="modal-backdrop hidden" id="feedbackModal" role="dialog" aria-modal="true" aria-labelledby="feedbackModalTitle">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div>
+            <p class="eyebrow" style="justify-content: flex-start;">community feedback</p>
+            <h3 id="feedbackModalTitle" style="font-family: var(--font-serif); font-size: 22px; color: var(--green); margin-top: 2px;">
+              Ideas &amp; Bug Reports
+            </h3>
+          </div>
+          <button class="modal-close-btn" id="modalCloseBtn" type="button" aria-label="Close modal">&times;</button>
+        </div>
+
+        <p style="font-size: 13.5px; color: var(--dim);">
+          Help refine the collective experience. Your thoughts directly shape future reveals and features.
+        </p>
+
+        <form id="feedbackForm" onsubmit="event.preventDefault(); window.submitFeedbackForm();">
+          <div style="display:flex; gap:10px; margin-top:14px;">
+            <label style="flex:1; display:flex; align-items:center; gap:6px; cursor:pointer; font-size:13px; color:var(--green);">
+              <input type="radio" name="feedbackType" value="idea" checked style="accent-color:var(--clay);">
+              Idea or Suggestion
+            </label>
+            <label style="flex:1; display:flex; align-items:center; gap:6px; cursor:pointer; font-size:13px; color:var(--green);">
+              <input type="radio" name="feedbackType" value="bug" style="accent-color:var(--clay);">
+              Bug or UI Issue
+            </label>
+          </div>
+
+          <textarea 
+            class="feedback-textarea" 
+            id="feedbackText" 
+            placeholder="Describe what you observed or what you'd love to see in the hAIve..."
+            required
+          ></textarea>
+
+          <input 
+            class="rem-input" 
+            id="feedbackContact" 
+            type="email" 
+            placeholder="Your email (optional, for follow-up)" 
+            style="width:100%; margin-bottom:14px;"
+          >
+
+          <button class="btn-primary" type="submit" style="height:48px; font-size:17px;">
+            Send Feedback
+          </button>
+          <div class="rem-feedback" id="feedbackStatus"></div>
+        </form>
+      </div>
+    </div>
+
+  <!-- Full-Width Edge-to-Edge Footer (Zero Outer Space, Complete Width) -->
+  <footer class="site-footer" role="contentinfo">
+    <!-- Center Decorative Honeycomb Wireframe Structure -->
+    <!-- Center Bleeding Honeycomb Hive (Coming from Bottom Edge Outside Screen) -->
+    <svg class="center-hive-ornament footer-hive" viewBox="0 0 520 120" preserveAspectRatio="xMidYMax slice" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M 292.9 101.0 L 292.9 139.0 L 260.0 158.0 L 227.1 139.0 L 227.1 101.0 L 260.0 82.0 Z" fill="none" stroke="var(--line-strong)" stroke-width="1.3" opacity="0.58" vector-effect="non-scaling-stroke"/>
+      <path d="M 277.1 110.1 L 277.1 129.9 L 260.0 139.8 L 242.9 129.9 L 242.9 110.1 L 260.0 100.2 Z" fill="none" stroke="var(--hive-stroke, #2E4A3F)" stroke-width="1.0" opacity="0.43" vector-effect="non-scaling-stroke"/>
+      <path d="M 227.1 101.0 L 227.1 139.0 L 194.2 158.0 L 161.3 139.0 L 161.3 101.0 L 194.2 82.0 Z" fill="none" stroke="var(--line-strong)" stroke-width="1.3" opacity="0.48" vector-effect="non-scaling-stroke"/>
+      <path d="M 358.7 101.0 L 358.7 139.0 L 325.8 158.0 L 292.9 139.0 L 292.9 101.0 L 325.8 82.0 Z" fill="none" stroke="var(--line-strong)" stroke-width="1.3" opacity="0.48" vector-effect="non-scaling-stroke"/>
+      <path d="M 161.3 101.0 L 161.3 139.0 L 128.4 158.0 L 95.5 139.0 L 95.5 101.0 L 128.4 82.0 Z" fill="none" stroke="var(--line-strong)" stroke-width="1.3" opacity="0.32" vector-effect="non-scaling-stroke"/>
+      <path d="M 424.5 101.0 L 424.5 139.0 L 391.6 158.0 L 358.7 139.0 L 358.7 101.0 L 391.6 82.0 Z" fill="none" stroke="var(--line-strong)" stroke-width="1.3" opacity="0.32" vector-effect="non-scaling-stroke"/>
+      <path d="M 260.0 44.0 L 260.0 82.0 L 227.1 101.0 L 194.2 82.0 L 194.2 44.0 L 227.1 25.0 Z" fill="none" stroke="var(--line-strong)" stroke-width="1.3" opacity="0.52" vector-effect="non-scaling-stroke"/>
+      <path d="M 325.8 44.0 L 325.8 82.0 L 292.9 101.0 L 260.0 82.0 L 260.0 44.0 L 292.9 25.0 Z" fill="none" stroke="var(--line-strong)" stroke-width="1.3" opacity="0.52" vector-effect="non-scaling-stroke"/>
+      <path d="M 310.0 53.1 L 310.0 72.9 L 292.9 82.8 L 275.8 72.9 L 275.8 53.1 L 292.9 43.2 Z" fill="none" stroke="var(--hive-stroke, #2E4A3F)" stroke-width="1.0" opacity="0.39" vector-effect="non-scaling-stroke"/>
+      <path d="M 194.2 44.0 L 194.2 82.0 L 161.3 101.0 L 128.4 82.0 L 128.4 44.0 L 161.3 25.0 Z" fill="none" stroke="var(--line-strong)" stroke-width="1.3" opacity="0.35" vector-effect="non-scaling-stroke"/>
+      <path d="M 391.6 44.0 L 391.6 82.0 L 358.7 101.0 L 325.8 82.0 L 325.8 44.0 L 358.7 25.0 Z" fill="none" stroke="var(--line-strong)" stroke-width="1.3" opacity="0.35" vector-effect="non-scaling-stroke"/>
+      <path d="M 292.9 -13.0 L 292.9 25.0 L 260.0 44.0 L 227.1 25.0 L 227.1 -13.0 L 260.0 -32.0 Z" fill="none" stroke="var(--line-strong)" stroke-width="1.3" opacity="0.42" vector-effect="non-scaling-stroke"/>
+    </svg>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-links">
+          <a href="#" class="footer-link" id="footerWhatIsThis">What is this?</a>
+          <span>&middot;</span>
+          <a href="#" class="footer-link" id="footerYourHaive">The Hive</a>
+          <span>&middot;</span>
+          <a href="#" class="footer-link" id="footerTheLab">The Lab</a>
+          <span>&middot;</span>
+          <a href="#" class="footer-link" id="footerMonthlySummary">Monthly Summary</a>
+          <span>&middot;</span>
+          <a href="#" class="footer-link" id="footerPrivacy">Privacy Policy</a>
+          <span>&middot;</span>
+          <a href="#" class="footer-link" id="footerTerms">Terms of Service</a>
+        </div>
+
+        <div>
+          <a href="#" class="footer-link" id="footerSampleMonth">Explore Monthly Summary &rarr;</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="teaser-text">Coming soon &mdash; photo days &middot; sound days &middot; collective audio</span>
+        <span class="footer-copyright">&copy; 2026 GeoffMedia LLC &middot; hAIve Chi. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Background Script & Application Logic -->
+  <script type="module">
+    import { drawGround } from "./js/ground.js";
+    const canvas = document.getElementById("groundCanvas");
+    drawGround(canvas);
+
+    // Re-render ground on theme switch for seamless palette adaptation
+    window.addEventListener("themeChanged", () => {
+      drawGround(canvas);
+    });
+  </script>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
