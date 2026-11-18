@@ -828,8 +828,8 @@ function initGroupedHiveArchive() {
         activeCard.className = 'featured-hex-card';
         activeCard.innerHTML = `
           <!-- Distinctive Elongated Hexagonal Card Silhouette Matching Reference -->
-          <svg class="featured-card-svg-bg" viewBox="0 0 1140 230" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M 72.0 3.0 L 1068.0 3.0 Q 1092.0 3.0 1104.0 28.0 L 1125.0 88.0 Q 1138.0 115.0 1125.0 142.0 L 1104.0 202.0 Q 1092.0 227.0 1068.0 227.0 L 72.0 227.0 Q 48.0 227.0 36.0 202.0 L 15.0 142.0 Q 2.0 115.0 15.0 88.0 L 36.0 28.0 Q 48.0 3.0 72.0 3.0 Z" class="featured-card-path" fill="#FFFDF9" stroke="#EBC9B5" stroke-width="1.8"/>
+          <svg class="featured-card-svg-bg" viewBox="0 0 1140 154" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M 60.0 3.0 L 1080.0 3.0 Q 1096.0 3.0 1108.0 19.0 L 1125.0 59.0 Q 1137.0 77.0 1125.0 95.0 L 1108.0 135.0 Q 1096.0 151.0 1080.0 151.0 L 60.0 151.0 Q 44.0 151.0 32.0 135.0 L 15.0 95.0 Q 3.0 77.0 15.0 59.0 L 32.0 19.0 Q 44.0 3.0 60.0 3.0 Z" class="featured-card-path" fill="#FFFDF9" stroke="#EBC9B5" stroke-width="1.8"/>
           </svg>
 
           <div class="featured-card-inner">
@@ -866,8 +866,8 @@ function initGroupedHiveArchive() {
             <!-- Right Column: Hex Button -->
             <div class="featured-card-right">
               <button class="featured-hex-cta-btn" id="hiveGoSubmitBtn" type="button">
-                <svg class="featured-hex-btn-svg" viewBox="0 0 280 60" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M 28.0 3.0 L 252.0 3.0 Q 262.0 3.0 267.0 11.0 L 275.0 23.0 Q 278.0 30.0 275.0 37.0 L 267.0 49.0 Q 262.0 57.0 252.0 57.0 L 28.0 57.0 Q 18.0 57.0 13.0 49.0 L 5.0 37.0 Q 2.0 30.0 5.0 23.0 L 13.0 11.0 Q 18.0 3.0 28.0 3.0 Z" class="featured-hex-btn-path" fill="#B84D24" stroke="#FFFFFF" stroke-width="2.5"/>
+                <svg class="featured-hex-btn-svg" viewBox="0 0 260 52" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M 26.0 3.0 L 234.0 3.0 Q 244.0 3.0 249.0 10.0 L 255.0 20.0 Q 257.0 26.0 255.0 32.0 L 249.0 42.0 Q 244.0 49.0 234.0 49.0 L 26.0 49.0 Q 16.0 49.0 11.0 42.0 L 5.0 32.0 Q 3.0 26.0 5.0 20.0 L 11.0 10.0 Q 16.0 3.0 26.0 3.0 Z" class="featured-hex-btn-path" fill="#B84D24" stroke="#FFFFFF" stroke-width="2.2"/>
                 </svg>
                 <span class="featured-hex-btn-text">Contribute Your Word &rarr;</span>
               </button>
@@ -1784,34 +1784,34 @@ function renderLabDaysFeed() {
 
       // Artwork SVG content
       const num = day.dayNum;
-      const hexClipPath = "M 76 6 L 184 6 Q 196 6 204 18 L 246 84 Q 253 95 246 106 L 204 172 Q 196 184 184 184 L 76 184 Q 64 184 56 172 L 14 106 Q 7 95 14 84 L 56 18 Q 64 6 76 6 Z";
+      const hexClipPath = "M 110 11 L 296 11 Q 312 11 312 27 L 312 243 Q 312 259 296 259 L 110 259 Q 100 259 95 252 L 31 142 Q 25 135 31 128 L 95 18 Q 100 11 110 11 Z";
       let artSvgInner = '';
       if (day.artImage) {
         artSvgInner = `
-          <image href="${day.artImage}" x="0" y="0" width="260" height="190" preserveAspectRatio="xMidYMid slice" clip-path="url(#hex-clip-${num})" />
+          <image href="${day.artImage}" x="0" y="0" width="312" height="270" preserveAspectRatio="xMidYMid slice" clip-path="url(#hex-clip-${num})" />
         `;
       } else {
         artSvgInner = `
           <g clip-path="url(#hex-clip-${num})">
-            <rect width="260" height="190" fill="#203028" />
-            <circle cx="${95 + (num % 60)}" cy="95" r="${35 + (num % 25)}" fill="none" stroke="#D98A62" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
-            <circle cx="${165 - (num % 40)}" cy="95" r="${26 + (num % 18)}" fill="none" stroke="#8CB89F" stroke-width="1.5" opacity="0.5"/>
-            <text x="130" y="90" text-anchor="middle" font-family="serif" font-style="italic" font-size="22" fill="#FCEEE5">&ldquo;${topWord || 'Machine'}&rdquo;</text>
-            <text x="130" y="116" text-anchor="middle" font-family="monospace" font-size="11" letter-spacing="1" fill="#D98A62">${day.dayCode}</text>
+            <rect width="312" height="270" fill="#203028" />
+            <circle cx="${125 + (num % 60)}" cy="135" r="${42 + (num % 25)}" fill="none" stroke="#D98A62" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.6"/>
+            <circle cx="${195 - (num % 40)}" cy="135" r="${32 + (num % 18)}" fill="none" stroke="#8CB89F" stroke-width="1.5" opacity="0.5"/>
+            <text x="160" y="130" text-anchor="middle" font-family="serif" font-style="italic" font-size="24" fill="#FCEEE5">&ldquo;${topWord || 'Machine'}&rdquo;</text>
+            <text x="160" y="156" text-anchor="middle" font-family="monospace" font-size="12" letter-spacing="1" fill="#D98A62">${day.dayCode}</text>
           </g>
         `;
       }
 
       card.innerHTML = `
         <!-- Distinctive Elongated Hexagonal Card Silhouette Matching Reference Exactly -->
-        <svg class="lab-day-card-svg-bg" viewBox="0 0 1024 240" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M 86.0 3.0 L 940.0 3.0 Q 948.0 3.0 954.0 11.0 L 1005.0 113.0 Q 1010.0 125.0 1005.0 137.0 L 954.0 229.0 Q 948.0 237.0 940.0 237.0 L 86.0 237.0 Q 78.0 237.0 72.0 229.0 L 21.0 137.0 Q 16.0 125.0 21.0 113.0 L 72.0 11.0 Q 78.0 3.0 86.0 3.0 Z" class="lab-day-card-path" fill="#FFFDF9" stroke="#EBC9B5" stroke-width="1.8"/>
+        <svg class="lab-day-card-svg-bg" viewBox="0 0 1024 270" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M 97.0 3.0 L 929.0 3.0 Q 938.0 3.0 946.0 12.0 L 1005.0 127.0 Q 1010.0 135.0 1005.0 143.0 L 946.0 258.0 Q 938.0 267.0 929.0 267.0 L 97.0 267.0 Q 88.0 267.0 80.0 258.0 L 21.0 143.0 Q 16.0 135.0 21.0 127.0 L 80.0 12.0 Q 88.0 3.0 97.0 3.0 Z" class="lab-day-card-path" fill="#FFFDF9" stroke="#EBC9B5" stroke-width="1.8"/>
         </svg>
 
         <div class="lab-day-inner">
-          <!-- Left Column: Hexagonal Artwork -->
+          <!-- Left Column: Hexagonal Artwork (Shifted closer to left apex) -->
           <div class="lab-day-art-hex">
-            <svg viewBox="0 0 260 190" class="lab-art-hex-svg" aria-label="${day.question} Artwork">
+            <svg viewBox="0 0 312 270" class="lab-art-hex-svg" aria-label="${day.question} Artwork">
               <defs>
                 <clipPath id="hex-clip-${num}">
                   <path d="${hexClipPath}" />
@@ -1822,13 +1822,15 @@ function renderLabDaysFeed() {
             </svg>
           </div>
 
-          <!-- Right Column: Content -->
+          <!-- Right Column: Content with Narrative Description -->
           <div class="lab-day-content">
             <div class="lab-day-date-eyebrow">
               <span>${dateFormatted}</span>
             </div>
 
             <h3 class="lab-day-question">${questionHtml}</h3>
+
+            <p class="lab-day-narrative">${day.narrative}</p>
 
             <div class="lab-day-freq-row">
               ${freqPillsHtml}
@@ -1861,12 +1863,6 @@ function renderLabDaysFeed() {
                   </svg>
                   <span>${day.totalRounds} rounds</span>
                 </span>
-              </div>
-
-              <div class="lab-day-meta-divider"></div>
-
-              <div class="lab-day-meta-right">
-                <button class="lab-day-compare-btn" type="button">Compare &rarr;</button>
               </div>
             </div>
           </div>

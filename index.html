@@ -700,98 +700,159 @@
             </div>
           </div>
 
-          <!-- 3-Step Interactive Ritual Sequence -->
-          <div class="steps-grid">
-            <div class="step-card">
-              <div class="step-card-top">
-                <span class="step-number">01</span>
-                <div class="step-glyph-pill glyph-q">?</div>
-              </div>
-              <div class="step-time-tag">06:00 UTC &middot; Universal Launch</div>
-              <h3 class="step-title">The Question<span class="mark-q">?</span></h3>
-              <p class="step-desc">
-                A single question is released universally. Every participant receives the prompt simultaneously with zero contextual cues or priming.
-              </p>
-              <div class="step-card-footer">
-                <span class="step-pill-tag">1 Universal Prompt</span>
-              </div>
-            </div>
+          <!-- 3-Step Interactive Ritual Sequence (Distinctive Elongated Hexagonal Process Ribbon) -->
+          <div class="about-hex-card">
+            <!-- Background SVG with 3 Interlocking Arrow Segments, Chevron Dividers, and Perimeter Outline -->
+            <svg class="about-card-svg-bg" viewBox="0 0 1024 220" preserveAspectRatio="none" aria-hidden="true">
+              <!-- Segment 1 (Left Arrow) -->
+              <path id="aboutSegment1" class="about-segment" d="M 88.0 3.0 L 328.0 3.0 L 387.0 110.0 L 328.0 217.0 L 88.0 217.0 Q 68.0 217.0 54.0 196.0 L 20.0 126.0 Q 14.0 110.0 20.0 94.0 L 54.0 24.0 Q 68.0 3.0 88.0 3.0 Z" />
 
-            <div class="step-card">
-              <div class="step-card-top">
-                <span class="step-number">02</span>
-                <div class="step-glyph-pill glyph-dot">&middot;</div>
-              </div>
-              <div class="step-time-tag">Throughout Today &middot; Private Intuition</div>
-              <h3 class="step-title">The Word<span class="mark-dot">.</span></h3>
-              <p class="step-desc">
-                You contribute your immediate, unfiltered first instinct. One single word. You cannot see anyone else's entry, preserving raw human intuition.
-              </p>
-              <div class="step-card-footer">
-                <span class="step-pill-tag">100% Blind Submission</span>
-              </div>
-            </div>
+              <!-- Segment 2 (Middle Chevron) -->
+              <path id="aboutSegment2" class="about-segment" d="M 328.0 3.0 L 638.0 3.0 L 697.0 110.0 L 638.0 217.0 L 328.0 217.0 L 387.0 110.0 Z" />
 
-            <div class="step-card">
-              <div class="step-card-top">
-                <span class="step-number">03</span>
-                <div class="step-glyph-pill glyph-ex">!</div>
+              <!-- Segment 3 (Right Arrow) -->
+              <path id="aboutSegment3" class="about-segment" d="M 638.0 3.0 L 936.0 3.0 Q 956.0 3.0 970.0 24.0 L 1004.0 94.0 Q 1010.0 110.0 1004.0 126.0 L 970.0 196.0 Q 956.0 217.0 936.0 217.0 L 638.0 217.0 L 697.0 110.0 Z" />
+
+              <!-- Chevron Divider 1 -->
+              <path id="aboutDivider1" class="about-divider-line" d="M 328.0 3.0 L 387.0 110.0 L 328.0 217.0" />
+
+              <!-- Chevron Divider 2 -->
+              <path id="aboutDivider2" class="about-divider-line" d="M 638.0 3.0 L 697.0 110.0 L 638.0 217.0" />
+
+              <!-- Flow Arrow 1 (Between Step 1 and 2) -->
+              <g id="aboutArrow1" class="about-arrow-svg" transform="translate(345, 102)">
+                <path d="M 0 8 L 18 8 M 12 2 L 18 8 L 12 14" stroke="#B84D24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+              </g>
+
+              <!-- Flow Arrow 2 (Between Step 2 and 3) -->
+              <g id="aboutArrow2" class="about-arrow-svg" transform="translate(655, 102)">
+                <path d="M 0 8 L 18 8 M 12 2 L 18 8 L 12 14" stroke="#B84D24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+              </g>
+
+              <!-- Outer Card Perimeter Outline -->
+              <path class="about-card-outer-outline" d="M 88.0 3.0 L 936.0 3.0 Q 956.0 3.0 970.0 24.0 L 1004.0 94.0 Q 1010.0 110.0 1004.0 126.0 L 970.0 196.0 Q 956.0 217.0 936.0 217.0 L 88.0 217.0 Q 68.0 217.0 54.0 196.0 L 20.0 126.0 Q 14.0 110.0 20.0 94.0 L 54.0 24.0 Q 68.0 3.0 88.0 3.0 Z" />
+            </svg>
+
+            <div class="about-steps-grid">
+              <!-- Step 01 -->
+              <div class="about-step-item" data-about-step="1">
+                <div class="about-step-top">
+                  <span class="about-num-badge">01</span>
+                </div>
+                <h3 class="about-step-title">The Question</h3>
+                <p class="about-step-desc">
+                  A single question is released universally for everyone to reflect on.
+                </p>
               </div>
-              <div class="step-time-tag">00:00 UTC &middot; Midnight Convergence</div>
-              <h3 class="step-title">The Reveal<span class="mark-ex">!</span></h3>
-              <p class="step-desc">
-                When the day closes, the collective corpus is synthesized into visual artwork, linguistic semantic clusters, and you discover exactly where your mind landed.
-              </p>
-              <div class="step-card-footer">
-                <span class="step-pill-tag">Collective Art &amp; Clusters</span>
+
+              <!-- Step 02 -->
+              <div class="about-step-item" data-about-step="2">
+                <div class="about-step-top">
+                  <span class="about-num-badge">02</span>
+                </div>
+                <h3 class="about-step-title">The Word</h3>
+                <p class="about-step-desc">
+                  Everyone contributes one unfiltered word, capturing their immediate instinct.
+                </p>
+              </div>
+
+              <!-- Step 03 -->
+              <div class="about-step-item" data-about-step="3">
+                <div class="about-step-top">
+                  <span class="about-num-badge">03</span>
+                </div>
+                <h3 class="about-step-title">The Reveal</h3>
+                <p class="about-step-desc">
+                  All words converge into a unique visual artwork, created by the collective.
+                </p>
               </div>
             </div>
           </div>
 
           <!-- Why One Word & Total Privacy Principles -->
           <div class="about-principles">
+            <!-- Principle Card 1: Zero Accounts -->
             <div class="principle-card">
+              <!-- Decorative Ambient Honeycomb Cluster Watermark -->
+              <svg class="principle-honeycomb-bg" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                <polygon points="60,8 84,21.5 84,48.5 60,62 36,48.5 36,21.5" stroke="rgba(184,77,36,0.18)" stroke-width="1.2" fill="none"/>
+                <polygon points="101,31.5 125,45 125,72 101,85.5 77,72 77,45" stroke="rgba(184,77,36,0.28)" stroke-width="1.2" fill="#F1DDCE" fill-opacity="0.45"/>
+                <polygon points="60,69 84,82.5 84,109.5 60,123 36,109.5 36,82.5" stroke="rgba(184,77,36,0.18)" stroke-width="1.2" fill="none"/>
+                <polygon points="19,45 43,58.5 43,85.5 19,99 -5,85.5 -5,58.5" stroke="rgba(184,77,36,0.12)" stroke-width="1" fill="none"/>
+              </svg>
+
               <div class="principle-card-head">
-                <div class="principle-icon-badge">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <div class="principle-hex-badge">
+                  <svg class="principle-hex-frame" viewBox="0 0 52 58" fill="none" aria-hidden="true">
+                    <polygon points="26,2 50,15.5 50,42.5 26,56 2,42.5 2,15.5" stroke="#E3B39C" stroke-width="1.5" fill="#FDF3EC" />
+                    <polygon points="26,6 46,17.5 46,40.5 26,52 6,40.5 6,17.5" fill="#FFF9F5" fill-opacity="0.8" />
                   </svg>
+                  <div class="principle-icon-glyph">
+                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                      <path d="M9 12l2 2 4-4"></path>
+                    </svg>
+                  </div>
                 </div>
-                <div>
+                <div class="principle-head-text">
+                  <div class="principle-eyebrow">
+                    <span class="principle-eyebrow-pip"></span>
+                    Decentralized &middot; Client-Side Sovereign
+                  </div>
                   <h4 class="principle-title">Zero Accounts &amp; Total Privacy</h4>
-                  <span class="principle-subtitle">Decentralized &middot; Client-Side Sovereign</span>
                 </div>
               </div>
               <p class="principle-body">
                 No signups, passwords, tracking cookies, or profiling algorithms. Your streak and submissions live securely in your device's browser. We never attach personal identities to words.
               </p>
+              <div class="principle-divider"></div>
               <div class="principle-tags">
-                <span class="ptag">Zero Cookies</span>
-                <span class="ptag">Device-Local</span>
-                <span class="ptag">Anonymous</span>
+                <span class="ptag"><span class="ptag-dot"></span>Zero Cookies</span>
+                <span class="ptag"><span class="ptag-dot"></span>Device-Local</span>
+                <span class="ptag"><span class="ptag-dot"></span>Anonymous</span>
               </div>
             </div>
 
+            <!-- Principle Card 2: Single Word -->
             <div class="principle-card">
+              <!-- Decorative Ambient Honeycomb Cluster Watermark -->
+              <svg class="principle-honeycomb-bg" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+                <polygon points="60,8 84,21.5 84,48.5 60,62 36,48.5 36,21.5" stroke="rgba(184,77,36,0.28)" stroke-width="1.2" fill="#F1DDCE" fill-opacity="0.45"/>
+                <polygon points="101,31.5 125,45 125,72 101,85.5 77,72 77,45" stroke="rgba(184,77,36,0.18)" stroke-width="1.2" fill="none"/>
+                <polygon points="60,69 84,82.5 84,109.5 60,123 36,109.5 36,82.5" stroke="rgba(184,77,36,0.18)" stroke-width="1.2" fill="none"/>
+                <polygon points="19,45 43,58.5 43,85.5 19,99 -5,85.5 -5,58.5" stroke="rgba(184,77,36,0.12)" stroke-width="1" fill="none"/>
+              </svg>
+
               <div class="principle-card-head">
-                <div class="principle-icon-badge">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="8" y1="12" x2="16" y2="12"></line>
+                <div class="principle-hex-badge">
+                  <svg class="principle-hex-frame" viewBox="0 0 52 58" fill="none" aria-hidden="true">
+                    <polygon points="26,2 50,15.5 50,42.5 26,56 2,42.5 2,15.5" stroke="#E3B39C" stroke-width="1.5" fill="#FDF3EC" />
+                    <polygon points="26,6 46,17.5 46,40.5 26,52 6,40.5 6,17.5" fill="#FFF9F5" fill-opacity="0.8" />
                   </svg>
+                  <div class="principle-icon-glyph">
+                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
+                      <line x1="16" y1="8" x2="2" y2="22"></line>
+                      <line x1="17.5" y1="15" x2="9" y2="15"></line>
+                    </svg>
+                  </div>
                 </div>
-                <div>
+                <div class="principle-head-text">
+                  <div class="principle-eyebrow">
+                    <span class="principle-eyebrow-pip"></span>
+                    Raw Instinct &middot; Unperformed Truth
+                  </div>
                   <h4 class="principle-title">Why A Single Word?</h4>
-                  <span class="principle-subtitle">Raw Instinct &middot; Unperformed Truth</span>
                 </div>
               </div>
               <p class="principle-body">
                 Longer answers are performed for audiences and social validation. A single word has nowhere to hide &mdash; it preserves the purest, unfiltered glimpse of human emotion and instinct.
               </p>
+              <div class="principle-divider"></div>
               <div class="principle-tags">
-                <span class="ptag">Unprimed</span>
-                <span class="ptag">Uncensored</span>
-                <span class="ptag">Pure Emotion</span>
+                <span class="ptag"><span class="ptag-dot"></span>Unprimed</span>
+                <span class="ptag"><span class="ptag-dot"></span>Uncensored</span>
+                <span class="ptag"><span class="ptag-dot"></span>Pure Emotion</span>
               </div>
             </div>
           </div>
@@ -952,84 +1013,112 @@
               <a href="#" class="summary-reveals-link" id="exploreMonthLink">EXPLORE THE MONTH &rarr;</a>
             </div>
 
-            <!-- 4 Distinctive Elongated Hexagonal Cards Silhouette -->
+            <!-- Distinctive Daily Reveal Synthesis Cards (3 in a Row, Spaced with Distance) -->
             <div class="summary-cards-row">
               <!-- Card 1 -->
               <div class="summary-hex-card" data-day="1">
-                <svg class="summary-card-svg-bg" viewBox="0 0 310 220" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M 34 8 Q 30 8 26 14 L 6 102 Q 2 110 6 118 L 26 206 Q 30 212 34 212 L 270 212 Q 276 212 280 206 L 304 118 Q 308 110 304 102 L 280 14 Q 276 8 270 8 Z" fill="#FFFFFF" stroke="#E6CDCE" stroke-width="1.4" vector-effect="non-scaling-stroke"/>
-                </svg>
-                <div class="summary-card-inner card-inner-first">
-                  <div class="demo-card-top-row">
-                    <span class="demo-card-badge">DAY 01</span>
-                    <span class="demo-card-date">Aug 1</span>
+                <div class="summary-card-inner">
+                  <div>
+                    <div class="demo-card-art-banner" style="background: linear-gradient(135deg, #163228 0%, #234739 50%, #447461 100%);">
+                      <svg class="demo-card-art-bg" viewBox="0 0 360 120" fill="none" aria-hidden="true">
+                        <g stroke="rgba(255,255,255,0.14)" stroke-width="1">
+                          <polygon points="30,20 45,28 45,46 30,54 15,46 15,28" fill="none"/>
+                          <polygon points="45,46 60,54 60,72 45,80 30,72 30,54" fill="rgba(255,255,255,0.04)"/>
+                          <polygon points="330,20 345,28 345,46 330,54 315,46 315,28" fill="none"/>
+                          <polygon points="315,46 330,54 330,72 315,80 300,72 300,54" fill="rgba(255,255,255,0.04)"/>
+                        </g>
+                        <circle cx="180" cy="60" r="65" fill="none" stroke="#D98A62" stroke-width="1.4" stroke-dasharray="4 4" opacity="0.45"/>
+                        <circle cx="235" cy="60" r="42" fill="none" stroke="#8CB89F" stroke-width="1.3" opacity="0.4"/>
+                      </svg>
+                      <span class="demo-card-badge">DAY 01</span>
+                      <span class="demo-card-date">Aug 1</span>
+                      <span class="demo-card-art-word">&ldquo;Petrichor&rdquo;</span>
+                    </div>
+                    <h3 class="demo-card-question">&ldquo;What lingers after the storm?&rdquo;</h3>
+                    <div class="demo-card-pills-row">
+                      <span class="demo-card-pill dominant"><em>petrichor</em> <span class="pill-cnt">4,120</span></span>
+                      <span class="demo-card-pill"><em>silence</em> <span class="pill-cnt">2,890</span></span>
+                      <span class="demo-card-pill"><em>renewal</em> <span class="pill-cnt">1,940</span></span>
+                    </div>
                   </div>
-                  <h3 class="demo-card-question">&ldquo;What lingers after the storm?&rdquo;</h3>
-                  <div class="demo-card-divider"></div>
-                  <div class="demo-card-bottom-row">
-                    <span class="demo-card-answer">Petrichor</span>
-                    <span class="demo-card-vsep"></span>
-                    <span class="demo-card-count">14,311 words</span>
+                  <div>
+                    <div class="demo-card-divider"></div>
+                    <div class="demo-card-bottom-row">
+                      <span class="demo-card-meta">14,311 words &bull; 100% Blind</span>
+                      <span class="demo-card-action">Reveal &rarr;</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <!-- Card 2 -->
               <div class="summary-hex-card" data-day="2">
-                <svg class="summary-card-svg-bg" viewBox="0 0 310 220" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M 6 8 Q 12 8 16 14 L 40 102 Q 44 110 40 118 L 16 206 Q 12 212 6 212 L 270 212 Q 276 212 280 206 L 304 118 Q 308 110 304 102 L 280 14 Q 276 8 270 8 Z" fill="#FFFFFF" stroke="#E6CDCE" stroke-width="1.4" vector-effect="non-scaling-stroke"/>
-                </svg>
-                <div class="summary-card-inner card-inner-mid">
-                  <div class="demo-card-top-row">
-                    <span class="demo-card-badge">DAY 02</span>
-                    <span class="demo-card-date">Aug 2</span>
+                <div class="summary-card-inner">
+                  <div>
+                    <div class="demo-card-art-banner" style="background: linear-gradient(135deg, #382B1C 0%, #634323 50%, #B0723F 100%);">
+                      <svg class="demo-card-art-bg" viewBox="0 0 360 120" fill="none" aria-hidden="true">
+                        <g stroke="rgba(255,255,255,0.14)" stroke-width="1">
+                          <polygon points="30,20 45,28 45,46 30,54 15,46 15,28" fill="none"/>
+                          <polygon points="45,46 60,54 60,72 45,80 30,72 30,54" fill="rgba(255,255,255,0.04)"/>
+                          <polygon points="330,20 345,28 345,46 330,54 315,46 315,28" fill="none"/>
+                          <polygon points="315,46 330,54 330,72 315,80 300,72 300,54" fill="rgba(255,255,255,0.04)"/>
+                        </g>
+                        <circle cx="165" cy="60" r="65" fill="none" stroke="#FFE0B2" stroke-width="1.4" stroke-dasharray="4 4" opacity="0.45"/>
+                        <circle cx="215" cy="60" r="42" fill="none" stroke="#FFCC80" stroke-width="1.3" opacity="0.4"/>
+                      </svg>
+                      <span class="demo-card-badge">DAY 02</span>
+                      <span class="demo-card-date">Aug 2</span>
+                      <span class="demo-card-art-word">&ldquo;Light&rdquo;</span>
+                    </div>
+                    <h3 class="demo-card-question">&ldquo;One word for morning.&rdquo;</h3>
+                    <div class="demo-card-pills-row">
+                      <span class="demo-card-pill dominant"><em>light</em> <span class="pill-cnt">6,420</span></span>
+                      <span class="demo-card-pill"><em>coffee</em> <span class="pill-cnt">3,110</span></span>
+                      <span class="demo-card-pill"><em>dawn</em> <span class="pill-cnt">2,840</span></span>
+                    </div>
                   </div>
-                  <h3 class="demo-card-question">&ldquo;One word for morning.&rdquo;</h3>
-                  <div class="demo-card-divider"></div>
-                  <div class="demo-card-bottom-row">
-                    <span class="demo-card-answer">Light</span>
-                    <span class="demo-card-vsep"></span>
-                    <span class="demo-card-count">15,050 words</span>
+                  <div>
+                    <div class="demo-card-divider"></div>
+                    <div class="demo-card-bottom-row">
+                      <span class="demo-card-meta">15,050 words &bull; 100% Blind</span>
+                      <span class="demo-card-action">Reveal &rarr;</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <!-- Card 3 -->
               <div class="summary-hex-card" data-day="3">
-                <svg class="summary-card-svg-bg" viewBox="0 0 310 220" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M 6 8 Q 12 8 16 14 L 40 102 Q 44 110 40 118 L 16 206 Q 12 212 6 212 L 270 212 Q 276 212 280 206 L 304 118 Q 308 110 304 102 L 280 14 Q 276 8 270 8 Z" fill="#FFFFFF" stroke="#E6CDCE" stroke-width="1.4" vector-effect="non-scaling-stroke"/>
-                </svg>
-                <div class="summary-card-inner card-inner-mid">
-                  <div class="demo-card-top-row">
-                    <span class="demo-card-badge">DAY 03</span>
-                    <span class="demo-card-date">Aug 3</span>
+                <div class="summary-card-inner">
+                  <div>
+                    <div class="demo-card-art-banner" style="background: linear-gradient(135deg, #381812 0%, #66291C 50%, #BC4F2D 100%);">
+                      <svg class="demo-card-art-bg" viewBox="0 0 360 120" fill="none" aria-hidden="true">
+                        <g stroke="rgba(255,255,255,0.14)" stroke-width="1">
+                          <polygon points="30,20 45,28 45,46 30,54 15,46 15,28" fill="none"/>
+                          <polygon points="45,46 60,54 60,72 45,80 30,72 30,54" fill="rgba(255,255,255,0.04)"/>
+                          <polygon points="330,20 345,28 345,46 330,54 315,46 315,28" fill="none"/>
+                          <polygon points="315,46 330,54 330,72 315,80 300,72 300,54" fill="rgba(255,255,255,0.04)"/>
+                        </g>
+                        <circle cx="175" cy="60" r="65" fill="none" stroke="#FFAB91" stroke-width="1.4" stroke-dasharray="4 4" opacity="0.45"/>
+                        <circle cx="225" cy="60" r="42" fill="none" stroke="#FF8A65" stroke-width="1.3" opacity="0.4"/>
+                      </svg>
+                      <span class="demo-card-badge">DAY 03</span>
+                      <span class="demo-card-date">Aug 3</span>
+                      <span class="demo-card-art-word">&ldquo;Fireplace&rdquo;</span>
+                    </div>
+                    <h3 class="demo-card-question">&ldquo;The earliest memory of warmth.&rdquo;</h3>
+                    <div class="demo-card-pills-row">
+                      <span class="demo-card-pill dominant"><em>fireplace</em> <span class="pill-cnt">5,230</span></span>
+                      <span class="demo-card-pill"><em>mother</em> <span class="pill-cnt">4,180</span></span>
+                      <span class="demo-card-pill"><em>sun</em> <span class="pill-cnt">3,120</span></span>
+                    </div>
                   </div>
-                  <h3 class="demo-card-question">&ldquo;The earliest memory of warmth.&rdquo;</h3>
-                  <div class="demo-card-divider"></div>
-                  <div class="demo-card-bottom-row">
-                    <span class="demo-card-answer">Fireplace</span>
-                    <span class="demo-card-vsep"></span>
-                    <span class="demo-card-count">15,789 words</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 4 -->
-              <div class="summary-hex-card" data-day="4">
-                <svg class="summary-card-svg-bg" viewBox="0 0 310 220" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M 6 8 Q 12 8 16 14 L 40 102 Q 44 110 40 118 L 16 206 Q 12 212 6 212 L 270 212 Q 276 212 280 206 L 304 118 Q 308 110 304 102 L 280 14 Q 276 8 270 8 Z" fill="#FFFFFF" stroke="#E6CDCE" stroke-width="1.4" vector-effect="non-scaling-stroke"/>
-                </svg>
-                <div class="summary-card-inner card-inner-mid">
-                  <div class="demo-card-top-row">
-                    <span class="demo-card-badge">DAY 04</span>
-                    <span class="demo-card-date">Aug 4</span>
-                  </div>
-                  <h3 class="demo-card-question">&ldquo;What cannot be bought?&rdquo;</h3>
-                  <div class="demo-card-divider"></div>
-                  <div class="demo-card-bottom-row">
-                    <span class="demo-card-answer">Time</span>
-                    <span class="demo-card-vsep"></span>
-                    <span class="demo-card-count">16,528 words</span>
+                  <div>
+                    <div class="demo-card-divider"></div>
+                    <div class="demo-card-bottom-row">
+                      <span class="demo-card-meta">15,789 words &bull; 100% Blind</span>
+                      <span class="demo-card-action">Reveal &rarr;</span>
+                    </div>
                   </div>
                 </div>
               </div>
