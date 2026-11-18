@@ -2094,7 +2094,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 28px 48px 26px 64px;
+  padding: 28px 44px 24px 56px;
   background: transparent;
   cursor: pointer;
   box-sizing: border-box;
@@ -2102,20 +2102,19 @@ body {
 }
 
 .about-step-item:first-child {
-  padding-left: 84px;
-  padding-right: 42px;
+  padding-left: 80px;
+  padding-right: 38px;
 }
 
 .about-step-item:last-child {
   padding-left: 48px;
-  padding-right: 96px;
+  padding-right: 86px;
 }
 
 .about-step-top {
   display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  margin-bottom: 8px;
+  align-items: center;
+  margin-bottom: 12px;
   flex-shrink: 0;
 }
 
@@ -2124,35 +2123,25 @@ body {
   align-items: center;
   justify-content: center;
   font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 800;
   background: #FDF2EA;
   color: #B84D24;
-  padding: 2px 10px;
+  padding: 4px 14px;
   border-radius: 9999px;
   box-shadow: 0 1px 4px rgba(184, 77, 36, 0.08);
   transition: all 0.25s ease;
   flex-shrink: 0;
 }
 
-.about-time-tag {
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  color: #7B8D85;
-  letter-spacing: 0.03em;
-  line-height: 1.35;
-  max-width: 145px;
-  transition: color 0.25s ease;
-}
-
 .about-step-title {
   font-family: var(--font-serif);
-  font-size: 23px;
+  font-size: 28px;
   font-weight: 600;
   color: var(--green, #173C35);
-  margin: 0 0 6px 0;
+  margin: 0 0 8px 0;
   line-height: 1.2;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
   transition: color 0.25s ease;
   flex-shrink: 0;
 }
@@ -2165,23 +2154,23 @@ body {
 
 .about-step-desc {
   font-family: var(--font-sans);
-  font-size: 13px;
-  line-height: 1.48;
+  font-size: 14px;
+  line-height: 1.5;
   color: #4F6156;
-  margin: 0 0 12px 0;
+  margin: 0 0 14px 0;
   transition: color 0.25s ease;
 }
 
 .about-step-item:first-child .about-step-desc {
-  max-width: 220px;
+  max-width: 236px;
 }
 
 .about-step-item:nth-child(2) .about-step-desc {
-  max-width: 215px;
+  max-width: 230px;
 }
 
 .about-step-item:last-child .about-step-desc {
-  max-width: 200px;
+  max-width: 218px;
 }
 
 .about-step-footer {
@@ -2193,14 +2182,15 @@ body {
   display: inline-flex;
   align-items: center;
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 600;
   color: #7A5B49;
   background: #FAF5F0;
   border: 1px solid #EBD5C7;
-  padding: 3px 11px;
+  padding: 4px 12px;
   border-radius: 9999px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.015em;
+  white-space: nowrap;
   transition: all 0.25s ease;
 }
 
@@ -2208,10 +2198,6 @@ body {
 .about-step-item:hover .about-num-badge {
   background: rgba(255, 255, 255, 0.25);
   color: #FFFDF9;
-}
-
-.about-step-item:hover .about-time-tag {
-  color: rgba(255, 253, 249, 0.88);
 }
 
 .about-step-item:hover .about-step-title,
