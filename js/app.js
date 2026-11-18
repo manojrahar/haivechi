@@ -712,10 +712,32 @@ function initPromptForm() {
     switchView('view-waiting');
   }
 
+  const inputWrapper = form.querySelector('.ritual-hex-input-box');
+
+  const triggerEmptyShake = () => {
+    // Re-trigger CSS animation cleanly
+    submitBtn.classList.remove('btn-shake-active');
+    if (inputWrapper) inputWrapper.classList.remove('input-shake-active');
+    void submitBtn.offsetWidth; // trigger DOM reflow
+    submitBtn.classList.add('btn-shake-active');
+    if (inputWrapper) {
+      void inputWrapper.offsetWidth;
+      inputWrapper.classList.add('input-shake-active');
+    }
+    input.focus();
+  };
+
   // Real-time single-word validation
   input.addEventListener('input', () => {
     errorMsg.textContent = '';
     const val = input.value.trim();
+    if (val) {
+      form.classList.add('has-input');
+      submitBtn.classList.remove('btn-shake-active');
+      if (inputWrapper) inputWrapper.classList.remove('input-shake-active');
+    } else {
+      form.classList.remove('has-input');
+    }
     if (val.includes(' ')) {
       errorMsg.textContent = 'One word only. Keep to your purest first instinct.';
     }
@@ -726,14 +748,14 @@ function initPromptForm() {
     const rawVal = input.value.trim();
 
     if (!rawVal) {
-      errorMsg.textContent = 'Please enter one word.';
-      input.focus();
+      errorMsg.textContent = 'Please enter your one word above.';
+      triggerEmptyShake();
       return;
     }
 
     if (rawVal.split(/\s+/).length > 1) {
       errorMsg.textContent = 'Only a single word is accepted. No phrases.';
-      input.focus();
+      triggerEmptyShake();
       return;
     }
 
